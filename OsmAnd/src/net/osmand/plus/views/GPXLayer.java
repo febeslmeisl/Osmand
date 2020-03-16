@@ -316,6 +316,7 @@ public class GPXLayer extends OsmandMapLayer implements ContextMenuLayer.IContex
 	}
 
 	private int txtlabelColor(int color) {
+		//Hardy, 2020-03-16: Contrast logic for text labels on tracks
 		if (((int) Color.red(color) * .299 + Color.green(color) * .587 + Color.blue(color) * .114) > 149) {
 			return Color.BLACK;
 		}

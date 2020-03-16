@@ -316,7 +316,7 @@ public class GPXLayer extends OsmandMapLayer implements ContextMenuLayer.IContex
 	}
 
 	private int txtlabelColor(int color) {
-		if (((int) Color.red(color) * .299 + Color.blue(color) * .587 + Color.green(color) * .114)) > 149) {
+		if (((int) Color.red(color) * .299 + Color.blue(color) * .587 + Color.green(color) * .114) > 149) {
 			return Color.BLACK;
 		}
 		return Color.WHITE;

@@ -304,12 +304,22 @@ public class GPXLayer extends OsmandMapLayer implements ContextMenuLayer.IContex
 					paintInnerRect.setColor(color);
 					paintInnerRect.setAlpha(179);
 
+					paintTextIcon.setColor(txtlabelColor(color));
+					paintOuterRect.setColor(txtlabelColor(color));
+
 					List<GpxDisplayItem> items = groups.get(0).getModifiableList();
 
 					drawSplitItems(canvas, tileBox, items, settings);
 				}
 			}
 		}
+	}
+
+	private int txtlabelColor(int color) {
+		if (((int) Color.red(int)*.299 + Color.blue(int)*.587 + Color.green(int)*.114)) > 149) {
+			return Color.BLACK;
+		}
+		return Color.WHITE;
 	}
 
 	private void drawSplitItems(Canvas canvas, RotatedTileBox tileBox, List<GpxDisplayItem> items, DrawSettings settings) {

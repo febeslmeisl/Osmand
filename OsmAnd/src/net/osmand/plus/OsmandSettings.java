@@ -2091,7 +2091,7 @@ public class OsmandSettings {
 
 	// For now this can be changed only in TestVoiceActivity
 	public final OsmandPreference<Integer> BT_SCO_DELAY = new IntPreference("bt_sco_delay",	1500).makeGlobal().cache();
-	public final OsmandPreference<Integer> VOICE_PROMPT_DELAY[] = new IntPreference[5]("voice_prompt_delay", {1500,0,0,0,0}).makeGlobal().cache();
+	public final OsmandPreference<Integer> VOICE_PROMPT_DELAY[] = new IntPreference[5]("voice_prompt_delay", 0).makeGlobal().cache();
 
 	{
 		VOICE_PROMPT_DELAY[3].set(0);

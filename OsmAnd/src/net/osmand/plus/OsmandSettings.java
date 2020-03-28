@@ -2094,9 +2094,9 @@ public class OsmandSettings {
 	public final OsmandPreference<Integer>[] VOICE_PROMPT_DELAY = new IntPreference[5]("voice_prompt_delay", 0).makeGlobal().cache();
 
 	{
-		VOICE_PROMPT_DELAY[3].set(0);
-		VOICE_PROMPT_DELAY[5].set(0);
-		VOICE_PROMPT_DELAY[0].set(1500);
+		VOICE_PROMPT_DELAY[3] = new IntPreference("voice_prompt_delay_3", 0).makeGlobal().cache()
+		VOICE_PROMPT_DELAY[5] = new IntPreference("voice_prompt_delay_5", 0).makeGlobal().cache()
+		VOICE_PROMPT_DELAY[0] = new IntPreference("voice_prompt_delay_0", 1500).makeGlobal().cache()
 	}
 
 	// this value string is synchronized with settings_pref.xml preference name

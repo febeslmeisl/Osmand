@@ -2,6 +2,7 @@ package net.osmand.plus.rastermaps;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -45,6 +46,7 @@ import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.activities.MapActivityLayers;
 import net.osmand.plus.dashboard.DashboardOnMap.DashboardType;
 import net.osmand.plus.dialogs.RasterMapMenu;
+import net.osmand.plus.quickaction.QuickActionType;
 import net.osmand.plus.views.MapTileLayer;
 import net.osmand.plus.views.OsmandMapTileView;
 import net.osmand.util.Algorithms;
@@ -61,20 +63,20 @@ import static net.osmand.aidlapi.OsmAndCustomizationConstants.UNDERLAY_MAP;
 import static net.osmand.plus.UiUtilities.CompoundButtonType.PROFILE_DEPENDENT;
 
 public class OsmandRasterMapsPlugin extends OsmandPlugin {
+
 	public static final String ID = "osmand.rastermaps";
 	// Constants for determining the order of items in the additional actions context menu
 	private static final int UPDATE_MAP_ITEM_ORDER = 12300;
 	private static final int DOWNLOAD_MAP_ITEM_ORDER = 12600;
 
 	private OsmandSettings settings;
-	private OsmandApplication app;
 
 	private MapTileLayer overlayLayer;
 	private MapTileLayer underlayLayer;
 	private StateChangedListener<Integer> overlayLayerListener;
 
 	public OsmandRasterMapsPlugin(OsmandApplication app) {
-		this.app = app;
+		super(app);
 		settings = app.getSettings();
 	}
 
@@ -84,8 +86,8 @@ public class OsmandRasterMapsPlugin extends OsmandPlugin {
 	}
 
 	@Override
-	public int getAssetResourceName() {
-		return R.drawable.online_maps;
+	public Drawable getAssetResourceImage() {
+		return app.getUIUtilities().getIcon(R.drawable.online_maps);
 	}
 
 	@Override
@@ -678,5 +680,14 @@ public class OsmandRasterMapsPlugin extends OsmandPlugin {
 
 	public interface OnMapSelectedCallback {
 		void onMapSelected(boolean canceled);
+	}
+
+	@Override
+	protected List<QuickActionType> getQuickActionTypes() {
+		List<QuickActionType> quickActionTypes = new ArrayList<>();
+		quickActionTypes.add(MapSourceAction.TYPE);
+		quickActionTypes.add(MapOverlayAction.TYPE);
+		quickActionTypes.add(MapUnderlayAction.TYPE);
+		return quickActionTypes;
 	}
 }

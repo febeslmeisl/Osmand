@@ -33,6 +33,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
+import androidx.recyclerview.widget.RecyclerView;
 
 import net.osmand.AndroidUtils;
 import net.osmand.IndexConstants;
@@ -261,6 +262,15 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 					}
 				}
 			});
+			getListView().addOnScrollListener(new RecyclerView.OnScrollListener() {
+				@Override
+				public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+					super.onScrollStateChanged(recyclerView, newState);
+					if (newState != RecyclerView.SCROLL_STATE_IDLE) {
+						hideKeyboard();
+					}
+				}
+			});
 		}
 		return view;
 	}
@@ -402,7 +412,7 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 				View iconItem = createIconItemView(iconRes, iconItems);
 				iconItems.addView(iconItem, new FlowLayout.LayoutParams(0, 0));
 			}
-			setIconNewColor(changedProfile.iconRes);
+			setIconColor(changedProfile.iconRes);
 		} else if (LOCATION_ICON_ITEMS.equals(preference.getKey())) {
 			locationIconItems = (FlowLayout) holder.findViewById(R.id.color_items);
 			locationIconItems.removeAllViews();
@@ -443,7 +453,7 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 	private View createColorItemView(final ProfileIconColors colorRes, ViewGroup rootView) {
 		FrameLayout colorItemView = (FrameLayout) UiUtilities.getInflater(getContext(), isNightMode())
 				.inflate(R.layout.preference_circle_item, rootView, false);
-		ImageView coloredCircle = colorItemView.findViewById(R.id.backgroundCircle);
+		ImageView coloredCircle = colorItemView.findViewById(R.id.background);
 		AndroidUtils.setBackground(coloredCircle,
 				UiUtilities.tintDrawable(ContextCompat.getDrawable(app, R.drawable.circle_background_light),
 				ContextCompat.getColor(app, colorRes.getColor(isNightMode()))));
@@ -452,14 +462,16 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 			public void onClick(View v) {
 				if (colorRes != changedProfile.color) {
 					updateColorSelector(colorRes);
+					setVerticalScrollBarEnabled(false);
 					updatePreference(findPreference(MASTER_PROFILE));
 					updatePreference(findPreference(LOCATION_ICON_ITEMS));
 					updatePreference(findPreference(NAV_ICON_ITEMS));
+					setVerticalScrollBarEnabled(true);
 				}
 			}
 		});
 
-		ImageView outlineCircle = colorItemView.findViewById(R.id.outlineCircle);
+		ImageView outlineCircle = colorItemView.findViewById(R.id.outline);
 		ImageView checkMark = colorItemView.findViewById(R.id.checkMark);
 		GradientDrawable gradientDrawable = (GradientDrawable) ContextCompat.getDrawable(app, R.drawable.circle_contour_bg_light);
 		if (gradientDrawable != null) {
@@ -475,14 +487,14 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 
 	private void updateColorSelector(ProfileIconColors color) {
 		View colorItem = colorItems.findViewWithTag(changedProfile.color);
-		colorItem.findViewById(R.id.outlineCircle).setVisibility(View.GONE);
+		colorItem.findViewById(R.id.outline).setVisibility(View.GONE);
 		colorItem.findViewById(R.id.checkMark).setVisibility(View.GONE);
 		colorItem = colorItems.findViewWithTag(color);
-		colorItem.findViewById(R.id.outlineCircle).setVisibility(View.VISIBLE);
+		colorItem.findViewById(R.id.outline).setVisibility(View.VISIBLE);
 		colorItem.findViewById(R.id.checkMark).setVisibility(View.VISIBLE);
 		changedProfile.color = color;
 		if (iconItems != null) {
-			setIconNewColor(changedProfile.iconRes);
+			updateIconColor(changedProfile.iconRes);
 		}
 		updateProfileNameAppearance();
 		updateProfileButton();
@@ -503,7 +515,7 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 				.inflate(R.layout.preference_circle_item, rootView, false);
 		ImageView checkMark = iconItemView.findViewById(R.id.checkMark);
 		checkMark.setImageDrawable(app.getUIUtilities().getIcon(iconRes, R.color.icon_color_default_light));
-		ImageView coloredCircle = iconItemView.findViewById(R.id.backgroundCircle);
+		ImageView coloredCircle = iconItemView.findViewById(R.id.background);
 		AndroidUtils.setBackground(coloredCircle,
 				UiUtilities.tintDrawable(ContextCompat.getDrawable(app, R.drawable.circle_background_light),
 				UiUtilities.getColorWithAlpha(ContextCompat.getColor(app, R.color.icon_color_default_light), 0.1f)));
@@ -515,18 +527,18 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 				}
 			}
 		});
-		iconItemView.findViewById(R.id.outlineCircle).setVisibility(View.GONE);
+		iconItemView.findViewById(R.id.outline).setVisibility(View.GONE);
 		iconItemView.setTag(iconRes);
 		return iconItemView;
 	}
 
 	private void updateIconSelector(int iconRes) {
-		setIconNewColor(iconRes);
+		updateIconColor(iconRes);
 		View iconItem = iconItems.findViewWithTag(changedProfile.iconRes);
-		iconItem.findViewById(R.id.outlineCircle).setVisibility(View.GONE);
+		iconItem.findViewById(R.id.outline).setVisibility(View.GONE);
 		ImageView checkMark = iconItem.findViewById(R.id.checkMark);
 		checkMark.setImageDrawable(app.getUIUtilities().getIcon(changedProfile.iconRes, R.color.icon_color_default_light));
-		AndroidUtils.setBackground(iconItem.findViewById(R.id.backgroundCircle),
+		AndroidUtils.setBackground(iconItem.findViewById(R.id.background),
 				UiUtilities.tintDrawable(ContextCompat.getDrawable(app, R.drawable.circle_background_light),
 						UiUtilities.getColorWithAlpha(ContextCompat.getColor(app, R.color.icon_color_default_light), 0.1f)));
 		changedProfile.iconRes = iconRes;
@@ -552,7 +564,9 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 			@Override
 			public void onClick(View v) {
 				if (locationIcon != changedProfile.locationIcon) {
+					setVerticalScrollBarEnabled(false);
 					updateLocationIconSelector(locationIcon);
+					setVerticalScrollBarEnabled(true);
 				}
 			}
 		});
@@ -596,7 +610,9 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 			@Override
 			public void onClick(View v) {
 				if (navigationIcon != changedProfile.navigationIcon) {
+					setVerticalScrollBarEnabled(false);
 					updateNavigationIconSelector(navigationIcon);
+					setVerticalScrollBarEnabled(true);
 				}
 			}
 		});
@@ -621,15 +637,21 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 		changedProfile.navigationIcon = navigationIcon;
 	}
 
-	private void setIconNewColor(int iconRes) {
+	private void updateIconColor(int iconRes) {
+		setVerticalScrollBarEnabled(false);
+		setIconColor(iconRes);
+		setVerticalScrollBarEnabled(true);
+	}
+
+	private void setIconColor(int iconRes) {
 		int changedProfileColor = ContextCompat.getColor(app, changedProfile.color.getColor(
 				app.getDaynightHelper().isNightModeForMapControls()));
 		View iconItem = iconItems.findViewWithTag(iconRes);
 		if (iconItem != null) {
-			AndroidUtils.setBackground(iconItem.findViewById(R.id.backgroundCircle),
+			AndroidUtils.setBackground(iconItem.findViewById(R.id.background),
 					UiUtilities.tintDrawable(ContextCompat.getDrawable(app, R.drawable.circle_background_light),
 							UiUtilities.getColorWithAlpha(ContextCompat.getColor(app, changedProfile.color.getColor(isNightMode())), 0.1f)));
-			ImageView outlineCircle = iconItem.findViewById(R.id.outlineCircle);
+			ImageView outlineCircle = iconItem.findViewById(R.id.outline);
 			GradientDrawable circleContourDrawable = (GradientDrawable) ContextCompat.getDrawable(app, R.drawable.circle_contour_bg_light);
 			if (circleContourDrawable != null) {
 				circleContourDrawable.setStroke(AndroidUtils.dpToPx(app, 2), changedProfileColor);
@@ -638,6 +660,20 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 			outlineCircle.setVisibility(View.VISIBLE);
 			ImageView checkMark = iconItem.findViewById(R.id.checkMark);
 			checkMark.setImageDrawable(app.getUIUtilities().getPaintedIcon(iconRes, changedProfileColor));
+		}
+	}
+
+	private void setVerticalScrollBarEnabled(boolean enabled) {
+		final RecyclerView preferenceListView = getListView();
+		if (enabled) {
+			preferenceListView.post(new Runnable() {
+				@Override
+				public void run() {
+					preferenceListView.setVerticalScrollBarEnabled(true);
+				}
+			});
+		} else {
+			preferenceListView.setVerticalScrollBarEnabled(false);
 		}
 	}
 
@@ -708,6 +744,7 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 	}
 
 	private void saveProfile() {
+		profile = changedProfile;
 		if (isNewProfile) {
 			DialogInterface.OnShowListener showListener = new DialogInterface.OnShowListener() {
 
@@ -769,7 +806,7 @@ public class ProfileAppearanceFragment extends BaseSettingsFragment {
 				tempDir.mkdirs();
 			}
 			app.getSettingsHelper().exportSettings(tempDir, mode.getStringKey(),
-					getSettingsExportListener(), new SettingsHelper.ProfileSettingsItem(app, mode));
+					getSettingsExportListener(), true, new SettingsHelper.ProfileSettingsItem(app, mode));
 		}
 	}
 

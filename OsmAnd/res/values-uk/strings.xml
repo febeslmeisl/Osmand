@@ -635,9 +635,9 @@
     <string name="choose_intersected_street">Виберіть перехрестя</string>
     <string name="Closest_Amenities">Найближчі послуги</string>
     <string name="app_mode_default">Огляд мапи</string>
-    <string name="app_mode_car">Автомобіль</string>
+    <string name="app_mode_car">Водіння</string>
     <string name="app_mode_bicycle">Велосипед</string>
-    <string name="app_mode_pedestrian">Пішохід</string>
+    <string name="app_mode_pedestrian">Ходіння</string>
     <string name="position_on_map_center">В центрі</string>
     <string name="position_on_map_bottom">Внизу</string>
     <string name="navigate_point_top_text">Широта та довгота введення у вибраному форматі (D - градуси, M - хвилини, S - секунди)</string>
@@ -1280,7 +1280,7 @@
     <string name="keep_informing_never">Тільки вручну (натискати на стрілку)</string>
     <string name="keep_informing_descr">Повторювати навігаційні вказівки через регулярні проміжки часу.</string>
     <string name="keep_informing">Повторювати навігаційні вказівки</string>
-    <string name="create_poi_link_to_osm_doc"> string name=\"lat_lon_pattern\"&gt;Шир: %1$.5f Дов: %2$.5f&lt;/string </string>
+    <string name="create_poi_link_to_osm_doc"><u>Online OSM</u> класифікація карт із зображенням.</string>
     <string name="import_file_favourites">Зберегти дані як GPX-файл чи імпортувати маршрутні точки в \'Закладки\'?</string>
     <string name="shared_string_share">Поділитися</string>
     <string name="share_fav_subject">Закладки, якими поділились через OsmAnd</string>
@@ -2003,7 +2003,7 @@
     <string name="gpx_no_tracks_title">Ви досі не маєте жодних GPX-файлів</string>
     <string name="gpx_no_tracks_title_folder">Ви також можете додати GPX-файли до теки</string>
     <string name="gpx_add_track">Додати ще…</string>
-    <string name="gpx_appearance">Вигляд</string>
+    <string name="shared_string_appearance">Вигляд</string>
     <string name="trip_rec_notification_settings">Ввімкнути швидкий запуск запису</string>
     <string name="trip_rec_notification_settings_desc">Показувати сповіщення, яке дозволить почати запис мандрівки.</string>
     <string name="shared_string_notifications">Повідомлення</string>
@@ -2777,7 +2777,7 @@
     <string name="shared_string_wifi_only">Лише через WiFi</string>
     <string name="select_travel_book">Вибрати щоденник подорожей</string>
     <string name="shared_string_travel_book">Щоденник подорожей</string>
-    <string name="online_webpage_warning">Сторінка доступна тільки мережево. Відкрити її в переглядачі\?</string>
+    <string name="online_webpage_warning">Сторінка доступна лише в мережі. Відкрити у веббраузері\?</string>
     <string name="images_cache">Кеш зображень</string>
     <string name="delete_search_history">Вилучити історію пошуку</string>
     <string name="download_images">Завантаження зображень</string>
@@ -3052,7 +3052,7 @@
     <string name="app_mode_shuttle_bus">Приміський автобус</string>
     <string name="app_mode_subway">Метро</string>
     <string name="app_mode_horse">Кінь</string>
-    <string name="app_mode_helicopter">Гелікоптер</string>
+    <string name="app_mode_helicopter">Вертиліт</string>
     <string name="osmand_routing_promo">Ви можете додати власну модифіковану версію файлу routing.xml до теки ..osmand/routing</string>
     <string name="app_mode_skiing">Лижі</string>
     <string name="base_profile_descr_ski">Лижі</string>
@@ -3109,8 +3109,8 @@
 \n• Інші виправлення помилок 
 \n 
 \n</string>
-    <string name="app_mode_personal_transporter">Персональний транспортер</string>
-    <string name="app_mode_monowheel">Моноколесо</string>
+    <string name="app_mode_personal_transporter">Особистий перевізник</string>
+    <string name="app_mode_monowheel">Одноколісний</string>
     <string name="app_mode_scooter">Самокат</string>
     <string name="precision_hdop_and_vdop">Поземна точність: %1$s, прямовисна точність: %2$s</string>
     <string name="precision_hdop">Поземна точність: %s</string>
@@ -3193,7 +3193,7 @@
     <string name="shared_string_open_track">Відкрити трек</string>
     <string name="shared_string_track_is_saved">Трек %s збережено</string>
     <string name="gpx_join_gaps">Об\'єднати прогалини</string>
-    <string name="app_mode_camper">Житель табору</string>
+    <string name="app_mode_camper">Табірник</string>
     <string name="app_mode_campervan">Дім на колесах</string>
     <string name="rendering_attr_showLez_description">Показати на мапі зони низьких викидів. Не впливає на маршрутизацію.</string>
     <string name="rendering_attr_showLez_name">Показати зони низьких викидів</string>
@@ -3307,7 +3307,7 @@
     <string name="routing_attr_width_name">Обмеження ширини</string>
     <string name="routing_attr_width_description">Вкажіть дозволену межу ширини транспортного засобу на маршрутах.</string>
     <string name="avoid_in_routing_descr_">Уникати певних маршрутів та типів доріг</string>
-    <string name="app_mode_utv">Мотовсюдихід</string>
+    <string name="app_mode_utv">Поруч</string>
     <string name="rendering_attr_piste_difficulty_aerialway_name">Повітряна дорога</string>
     <string name="rendering_attr_piste_difficulty_connection_name">З\'єднання</string>
     <string name="shared_string_calculate">Розрахувати</string>
@@ -3471,7 +3471,7 @@
     <string name="multimedia_photo_play_sound">Звук затвору камери</string>
     <string name="osm_authorization_success">Авторизація пройшла успішно</string>
     <string name="rearrange_categories">Перевпорядкувати категорії</string>
-    <string name="create_custom_categories_list_promo">Ви можете додати особливі приховані категорії, які вам не здаються потрібними, і змінити упорядкування списку. Список можна імпортувати та експортувати за допомогою профілів.</string>
+    <string name="create_custom_categories_list_promo">Змінюйте порядок сортування списку, приховайте непотрібні категорії. Ви можете імпортувати або експортувати всі зміни з профілями.</string>
     <string name="add_new_custom_category_button_promo">Ви можете додати нову власну категорію, вибравши одну або кілька необхідних категорій.</string>
     <string name="shared_string_available">Доступні</string>
     <string name="add_custom_category">Додати власну категорію</string>
@@ -3568,4 +3568,33 @@
     <string name="items_added">Елементи додано</string>
     <string name="shared_string_import_complete">Імпорт завершено</string>
     <string name="import_complete_description">Усі дані з %1$s імпортуються, ви можете використовувати кнопки нижче, щоб відкрити необхідну частину застосунку для управління ними.</string>
+    <string name="recalculate_route_distance_promo">Маршрут буде перераховано, якщо відстань від маршруту до поточного місця розташування перевищує вибране значення.</string>
+    <string name="select_distance_route_will_recalc">Виберіть відстань, після якого маршрут буде перераховано.</string>
+    <string name="recalculate_route_in_deviation">Перерахунок маршруту у випадку відхилення</string>
+    <string name="shared_string_min">Хв</string>
+    <string name="shared_string_terrain">Місцевість</string>
+    <string name="hillshade_description">Мапа пагорбів використовує темні відтінки для показу схилів, вершин і низин.</string>
+    <string name="slope_description">Схил - це кольорове відмальовування на місцевості.</string>
+    <string name="terrain_slider_description">Встановіть найменший та найбільший рівні масштабування, при якому шар буде відображатися.</string>
+    <string name="hillshade_download_description">Потрібні додаткові мапи для перегляду пагорбів.</string>
+    <string name="slope_download_description">Для перегляду схилів потрібні додаткові мапи.</string>
+    <string name="slope_read_more">Ви можете прочитати більше про схили в %1$s.</string>
+    <string name="shared_string_transparency">Прозорість</string>
+    <string name="shared_string_zoom_levels">Рівні масштабування</string>
+    <string name="shared_string_legend">Позначення</string>
+    <string name="terrain_empty_state_text">Увімкнути для перегляду мапи пагорбів або схилів. Докладніше про ці види мап ви можете прочитати на нашому сайті</string>
+    <string name="shared_string_hillshade">Пагорб</string>
+    <string name="n_items_of_z">%1$s з %2$s</string>
+    <string name="download_slope_maps">Схили</string>
+    <string name="quick_action_show_hide_terrain">Показати/приховати місцевість</string>
+    <string name="quick_action_terrain_hide">Сховати місцевість</string>
+    <string name="quick_action_terrain_show">Показати місцевість</string>
+    <string name="quick_action_terrain_descr">Кнопка для відображення або приховування шару місцевості на мапі.</string>
+    <string name="delete_description">Видалити опис</string>
+    <string name="add_description">Додати опис</string>
+    <string name="select_group">Вибрати групу</string>
+    <string name="select_shape">Вибрати фігуру</string>
+    <string name="shared_string_circle">Коло</string>
+    <string name="shared_string_rhomb">Ромб</string>
+    <string name="shared_string_square">Площа</string>
 </resources>

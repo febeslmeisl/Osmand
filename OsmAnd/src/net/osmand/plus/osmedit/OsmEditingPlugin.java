@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,12 +42,14 @@ import net.osmand.plus.myplaces.AvailableGPXFragment;
 import net.osmand.plus.myplaces.AvailableGPXFragment.GpxInfo;
 import net.osmand.plus.myplaces.FavoritesActivity;
 import net.osmand.plus.osmedit.OsmPoint.Action;
+import net.osmand.plus.quickaction.QuickActionType;
 import net.osmand.plus.settings.BaseSettingsFragment;
 import net.osmand.plus.views.OsmandMapTileView;
 import net.osmand.util.Algorithms;
 
 import org.apache.commons.logging.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static net.osmand.aidlapi.OsmAndCustomizationConstants.MAP_CONTEXT_MENU_CREATE_POI;
@@ -71,7 +74,6 @@ public class OsmEditingPlugin extends OsmandPlugin {
 	private static final int MODIFY_OSM_NOTE_ITEM_ORDER = 7600;
 
 	private OsmandSettings settings;
-	private OsmandApplication app;
 	private OpenstreetmapsDbHelper dbpoi;
 	private OsmBugsDbHelper dbbug;
 	private OpenstreetmapLocalUtil localUtil;
@@ -80,7 +82,7 @@ public class OsmEditingPlugin extends OsmandPlugin {
 	private OsmBugsLocalUtil localNotesUtil;
 
 	public OsmEditingPlugin(OsmandApplication app) {
-		this.app = app;
+		super(app);
 		settings = app.getSettings();
 	}
 
@@ -136,6 +138,15 @@ public class OsmEditingPlugin extends OsmandPlugin {
 	private OsmBugsLayer osmBugsLayer;
 	private OsmEditsLayer osmEditsLayer;
 //	private EditingPOIDialogProvider poiActions;
+
+	@Override
+	protected List<QuickActionType> getQuickActionTypes() {
+		List<QuickActionType> quickActionTypes = new ArrayList<>();
+		quickActionTypes.add(AddPOIAction.TYPE);
+		quickActionTypes.add(AddOSMBugAction.TYPE);
+		quickActionTypes.add(ShowHideOSMBugAction.TYPE);
+		return quickActionTypes;
+	}
 
 	@Override
 	public void updateLayers(OsmandMapTileView mapView, MapActivity activity) {
@@ -498,10 +509,9 @@ public class OsmEditingPlugin extends OsmandPlugin {
 	}
 
 	@Override
-	public int getAssetResourceName() {
-		return R.drawable.osm_editing;
+	public Drawable getAssetResourceImage() {
+		return app.getUIUtilities().getIcon(R.drawable.osm_editing);
 	}
-
 
 	@Override
 	public String getHelpFileName() {

@@ -104,6 +104,14 @@ public class Algorithms {
 		return name.substring(i + 1);
 	}
 
+	public static String getFileWithoutDirs(String name) {
+		int i = name.lastIndexOf(File.separator);
+		if (i != -1) {
+			return name.substring(i + 1);
+		}
+		return name;
+	}
+
 	public static File[] getSortedFilesVersions(File dir) {
 		File[] listFiles = dir.listFiles();
 		if (listFiles != null) {
@@ -816,5 +824,31 @@ public class Algorithms {
 		} else {
 			return array;
 		}
+	}
+
+	public static String arrayToString(int[] a) {
+		if (a == null || a.length == 0) {
+			return null;
+		}
+		StringBuilder b = new StringBuilder();
+		for (int value : a) {
+			if (b.length() > 0) {
+				b.append(",");
+			}
+			b.append(value);
+		}
+		return b.toString();
+	}
+
+	public static int[] stringToArray(String array) throws NumberFormatException {
+		if (array == null || array.length() == 0) {
+			return null;
+		}
+		String[] items = array.split(",");
+		int[] res = new int[items.length];
+		for (int i = 0; i < items.length; i++) {
+			res[i] = Integer.parseInt(items[i]);
+		}
+		return res;
 	}
 }

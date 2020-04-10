@@ -349,7 +349,7 @@
     <string name="edit_tilesource_successfully">A fonte da quadrícula %1$s foi salva</string>
     <string name="speak_traffic_warnings">Moderadores de tráfego</string>
     <string name="context_menu_item_directions_from">Rota a partir daqui</string>
-    <string name="app_mode_default">Explorar mapa</string>
+    <string name="app_mode_default">Navegar no mapa</string>
     <string name="local_indexes_cat_av">Dados de Áudio/Vídeo</string>
     <string name="stop_routing_confirm">Confirma que quer parar a navegação?</string>
     <string name="int_hour">h</string>
@@ -2254,7 +2254,7 @@ Pôr do Sol: %2$s</string>
     <string name="gpx_no_tracks_title">Você não tem arquivos GPX ainda</string>
     <string name="gpx_no_tracks_title_folder">Você pode também adicionar arquivos GPX na pasta</string>
     <string name="gpx_add_track">Adicionar…</string>
-    <string name="gpx_appearance">Aparência</string>
+    <string name="shared_string_appearance">Aparência</string>
     <string name="trip_rec_notification_settings">Ativar gravação rápida</string>
     <string name="shared_string_notifications">Notificações</string>
     <string name="shared_string_continue">Continuar</string>
@@ -3468,7 +3468,7 @@ Pôr do Sol: %2$s</string>
     <string name="multimedia_photo_play_sound">Som do obturador da câmera</string>
     <string name="osm_authorization_success">Autorização bem sucedida</string>
     <string name="rearrange_categories">Reorganizar categorias</string>
-    <string name="create_custom_categories_list_promo">Você pode adicionar categorias personalizadas, ocultar categorias que não considera necessárias e alterar a ordem de classificação da lista. A lista pode ser importada e exportada com perfis.</string>
+    <string name="create_custom_categories_list_promo">Altere a ordem de classificação da lista, oculte categorias desnecessárias. Você pode importar ou exportar todas as alterações com perfis.</string>
     <string name="add_new_custom_category_button_promo">Você pode adicionar uma nova categoria personalizada selecionando uma ou algumas categorias necessárias.</string>
     <string name="shared_string_available">Disponível</string>
     <string name="add_custom_category">Adicionar categoria personalizada</string>
@@ -3557,4 +3557,56 @@ Pôr do Sol: %2$s</string>
     <string name="saving_new_profile">Salvando novo perfil</string>
     <string name="profile_backup_failed">Não foi possível fazer o backup do perfil.</string>
     <string name="clear_recorded_data_warning">Tem certeza de que deseja limpar os dados gravados\?</string>
+    <string name="importing_from">Importando dados de %1$s</string>
+    <string name="shared_string_importing">Importando</string>
+    <string name="checking_for_duplicate_description">OsmAnd verifica %1$s para duplicatas com itens existentes no aplicativo.
+\n
+\nPode levar algum tempo.</string>
+    <string name="items_added">Itens adicionados</string>
+    <string name="shared_string_import_complete">Importação concluída</string>
+    <string name="import_complete_description">Todos os dados do %1$s são importados. Você pode usar os botões abaixo para abrir a parte necessária do aplicativo para gerenciá-lo.</string>
+    <string name="recalculate_route_distance_promo">A rota será recalculada se a distância da rota até o local atual for maior que o valor selecionado.</string>
+    <string name="select_distance_route_will_recalc">Selecione a distância após a qual o percurso será recalculado.</string>
+    <string name="recalculate_route_in_deviation">Recalcular rota em caso de desvio</string>
+    <string name="shared_string_terrain">Terreno</string>
+    <string name="hillshade_description">Mapa de sombras de relevo usando tons escuros para mostrar encostas, picos e planícies.</string>
+    <string name="slope_description">A inclinação é visualizações coloridas no terreno.</string>
+    <string name="terrain_slider_description">Defina os níveis mínimo e máximo de zoom nos quais a camada será exibida.</string>
+    <string name="hillshade_download_description">Mapas adicionais são necessários para visualizar sombras de relevo no mapa.</string>
+    <string name="slope_download_description">Mapas adicionais são necessários para visualizar as Inclinações no mapa.</string>
+    <string name="slope_read_more">Você pode ler mais sobre pistas em %1$s.</string>
+    <string name="shared_string_transparency">Transparência</string>
+    <string name="shared_string_zoom_levels">Níveis de zoom</string>
+    <string name="shared_string_legend">Legenda</string>
+    <string name="terrain_empty_state_text">Ative para visualizar mapa de colinas ou declives. Você pode ler mais sobre esses tipos de mapa em nosso site</string>
+    <string name="shared_string_hillshade">Sombras de relevo</string>
+    <string name="n_items_of_z">%1$s de %2$s</string>
+    <string name="download_slope_maps">Encostas</string>
+    <string name="quick_action_show_hide_terrain">Mostrar/ocultar terreno</string>
+    <string name="quick_action_terrain_hide">Ocultar terreno</string>
+    <string name="quick_action_terrain_show">Mostrar terreno</string>
+    <string name="quick_action_terrain_descr">Um botão para mostrar ou ocultar a camada do terreno no mapa.</string>
+    <string name="delete_description">Excluir descrição</string>
+    <string name="add_description">Adicionar descrição</string>
+    <string name="select_group">Selecionar grupo</string>
+    <string name="select_shape">Selecionar forma</string>
+    <string name="shared_string_circle">Círculo</string>
+    <string name="shared_string_octagon">Octógono</string>
+    <string name="shared_string_square">Quadrado</string>
+    <string name="shared_string_min">Min</string>
+    <string name="app_mode_ski_touring">Passeio de esqui</string>
+    <string name="app_mode_ski_snowmobile">Moto de neve</string>
+    <string name="custom_osmand_plugin">Plug-in OsmAnd personalizado</string>
+    <string name="replace_point_descr">Substitua outro ponto por este</string>
+    <string name="changes_applied_to_profile">Alterações aplicadas ao perfil %1$s.</string>
+    <string name="settings_item_read_error">Não foi possível ler %1$s.</string>
+    <string name="settings_item_write_error">Não foi possível escrever %1$s.</string>
+    <string name="settings_item_import_error">Não foi possível importar %1$s.</string>
+    <string name="select_track_file">Selecionar arquivo de faixa</string>
+    <string name="shared_string_languages">Idiomas</string>
+    <string name="shared_string_language">Idioma</string>
+    <string name="shared_string_all_languages">Todos os idiomas</string>
+    <string name="wikipedia_poi_languages_promo">Alguns artigos da Wikipédia podem não estar disponíveis em seu nome. Selecione os idiomas nos quais os artigos da Wikipédia aparecerão no mapa.
+\nVocê poderá alternar entre todos os idiomas disponíveis enquanto lê o artigo.</string>
+    <string name="wiki_menu_download_descr">Mapas adicionais são necessários para visualizar os POIs da Wikipédia no mapa.</string>
 </resources>

@@ -4,7 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="?attr/activity_background_basic">
+	android:background="?attr/activity_background_color">
 
 	<androidx.core.widget.NestedScrollView
 		android:id="@+id/nested_scroll"
@@ -31,6 +31,7 @@
 					android:paddingTop="@dimen/list_header_settings_top_margin"
 					android:paddingEnd="@dimen/content_padding"
 					android:paddingBottom="@dimen/list_header_settings_top_margin"
+					android:lineSpacingMultiplier="@dimen/line_spacing_multiplier_description"
 					android:textColor="?android:textColorPrimary"
 					android:textSize="@dimen/default_list_text_size"
 					tools:text="@string/import_complete_description" />
@@ -100,7 +101,7 @@
 			android:id="@+id/toolbar_layout"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/toolbar_height_expanded"
-			android:background="?attr/colorPrimary"
+			android:background="?attr/actionModeBackground"
 			osmand:expandedTitleMarginBottom="@dimen/content_padding_small"
 			osmand:expandedTitleMarginEnd="@dimen/content_padding"
 			osmand:expandedTitleMarginStart="@dimen/content_padding"

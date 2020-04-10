@@ -195,7 +195,7 @@
     <string name="gpx_no_tracks_title">У вас пока нет файлов GPX</string>
     <string name="gpx_no_tracks_title_folder">Вы также можете добавить файлы GPX в папку</string>
     <string name="gpx_add_track">Добавь еще…</string>
-    <string name="gpx_appearance">Вид</string>
+    <string name="shared_string_appearance">Вид</string>
     <string name="trip_rec_notification_settings">Включить быструю запись</string>
     <string name="trip_rec_notification_settings_desc">Отображение системного уведомления, позволяющего производить запись поездки.</string>
     <string name="shared_string_notifications">Уведомления</string>
@@ -252,7 +252,7 @@
     <string name="osm_editors_ranking">Рейтинг картографов OSM</string>
     <string name="show_transparency_seekbar">Отображать регулировку прозрачности</string>
     <string name="show_polygons">Отображать полигоны</string>
-    <string name="rendering_attr_showMtbRoutes_name">Показывать маршруты горных велосипедов</string>
+    <string name="rendering_attr_showMtbRoutes_name">Трассы для горных велосипедов</string>
     <string name="shared_string_select">Выбрать</string>
     <string name="rendering_attr_hideIcons_name">Значки POI</string>
     <string name="rendering_attr_horseRoutes_name">Конные маршруты</string>
@@ -370,18 +370,18 @@
     <string name="map_online_data_descr">Использовать онлайн карты (загрузка и кэширование на SD-карте).</string>
     <string name="shared_string_online_maps">Онлайн карты</string>
     <string name="online_map_settings_descr">Выберите источник онлайн или кешированных растровых карт.</string>
-    <string name="osmand_rastermaps_plugin_description">С помощью этого плагина можно получить доступ ко множеству видов онлайн-карт (тайловых или растровых), от предопределенных тайловых OpenStreetMap (Mapnik) до спутниковых снимков и слоев специального назначения, таких как карты погоды, климатические карты, геологических карты, слои затемнения высот и т. д. 
-\n 
-\nЛюбая из этих карт может быть использована в качестве основной (базовой) карты для отображения карты OsmAnd, или в виде наложения или подложки к другой базовой карте (например стандартной офлайн-карте OsmAnd). Чтобы сделать какую-либо подложку лучше видимой, некоторые элементы векторной карты OsmAnd могут быть по желанию легко скрыты через меню «Настройки карты». 
-\n 
-\nТайловые карты можно получить непосредственно с помощью онлайн-источников или подготовить для использования в автономном режиме (и вручную скопировать в папку данных OsmAnd) в виде базы данных sqlite, которая может быть создана с помощью различных инструментов подготовки карт сторонних производителей.</string>
+    <string name="osmand_rastermaps_plugin_description">Получение доступа ко множеству видов онлайн-карт (тайловых или растровых): от предопределенных тайловых OSM (как Mapnik), до спутниковых снимков и слоев специального назначения, таких как карты погоды, климатические карты, геологических карты, слои затемнения высот и т. д.
+\n
+\n Любая из этих карт может быть использована в качестве основной (базовой) карты для отображения или в виде наложения или подложки к другой базовой карте (например стандартной автономной карте OsmAnd). Некоторые элементы векторной карты OsmAnd могут быть по желанию скрыты через меню \"Настройки карты\". 
+\n
+\n Карты можно загрузить непосредственно из интернета или подготовить для использования в автономном режиме (и вручную скопировать в папку данных OsmAnd) в виде базы данных sqlite, которая может быть создана с помощью различных инструментов подготовки карт сторонних производителей.</string>
     <string name="osmand_background_plugin_description">Показывает настройки для включения фонового отслеживания и навигации путем периодического пробуждения устройства GPS (с выключенным экраном).</string>
     <string name="osmand_accessibility_description">Добавляет поддержку специальных возможностей устройства непосредственно в OsmAnd. Это облегчает, например, регулировку скорости речи для синтезированного голоса, настройку направленности экрана навигации, управление масштабом при помощи трекбола или использование голосовых команд обратной связи для автоматической аннотации вашего местоположения.</string>
     <string name="osmand_development_plugin_description">Настройки для функций разработки и отладки, таких как проверка или имитация маршрутизации, производительность отрисовки, проверка голосовых подсказок. Эти настройки предназначены для разработчиков и не нужны обычному пользователю.</string>
     <string name="plugins_screen">Плагины</string>
     <string name="prefs_plugins_descr">Плагины активируют дополнительные возможности приложения.</string>
     <string name="prefs_plugins">Плагины</string>
-    <string name="osm_editing_plugin_description">С помощью этого плагина OsmAnd может быть использован для улучшения OSM через создание или изменение объектов OSM POI, открытие или комментирование OSM заметок, а также отправку записанных файлов GPX. OSM развивается обществом, глобальный проект создания карты общей собственности. Для получения дополнительной информации, пожалуйста, обращайтесь на https://openstreetmap.org. Активное участие ценится, и взносы могут быть сделаны непосредственно через OsmAnd, если вы укажете свои учетные данные OSM в настройках.</string>
+    <string name="osm_editing_plugin_description">Используется для улучшения OSM через создание или изменение объектов OSM POI, открытие или комментирование заметок OSM, а также отправку записанных файлов GPX после указания своих имени пользователя и пароля. OpenStreetMap.org — это управляемый сообществом глобальный проект картирования общественного достояния.</string>
     <string name="vector_maps_may_display_faster_on_some_devices">Векторные карты могут отображаться быстрее. Поддерживается не всеми устройствами.</string>
     <string name="play_commands_of_currently_selected_voice">Выберите голос и протестируйте его, проигрывая объявления:</string>
     <string name="debugging_and_development">Отладка и разработка</string>
@@ -489,7 +489,7 @@
     <string name="vector_data_missing">Локальные данные отсутствуют на SD-карте. Пожалуйста, загрузите их для того, чтобы использовать приложение без Интернета.</string>
     <string name="local_index_gpx_info_show">"
 \n
-\nДолго удерживайте для вызова настроек"</string>
+\nУдерживайте для вызова настроек"</string>
     <string name="local_index_installed">Загружено</string>
     <string name="local_index_items_backuped">%1$d из %2$d объект(ов) успешно архивированы.</string>
     <string name="local_index_items_deleted">%1$d из %2$d объект(ов) успешно удалены.</string>
@@ -542,7 +542,7 @@
     <string name="map_overlay_descr">Выберите слой наложения поверх основной карты</string>
     <string name="tile_source_already_installed">Карта уже установлена, настройки будут обновлены.</string>
     <string name="select_tile_source_to_install">Выберите (тайловые) карты для установки или обновления.</string>
-    <string name="internet_not_available">Требуется Интернет соединение для данной операции, но оно недоступно.</string>
+    <string name="internet_not_available">Для данной операции требуется подключение к интернету, но оно недоступно.</string>
     <string name="install_more">Загрузить еще…</string>
     <string name="level_to_switch_vector_raster_descr">Минимальный масштаб для использования векторных карт.</string>
     <string name="level_to_switch_vector_raster">Минимальный уровень векторных карт</string>
@@ -1145,23 +1145,24 @@
 \n
 \n OsmAnd продолжает активно развиваться. Но так как проект финансируется только взносами пользователей, то дальнейшее развитие проекта и появление новых функциональных возможностей зависит от наличия этого финансирования. Поэтому если вам нравится приложение, подумайте о покупке OsmAnd+. Также на сайте osmand.net вы можете профинансировать конкретную функциональную возможность или внести общий финансовый вклад в развитие проекта.</string>
     <string name="osmand_plus_short_description_80_chars">OsmAnd - это навигационное приложение для путешествий с открытым исходным кодом</string>
-    <string name="osmand_plus_long_description_1000_chars">OsmAnd+ (OSM Automated Navigation Directions) 
-\n 
+    <string name="osmand_plus_long_description_1000_chars">OsmAnd+ (OSM Automated Navigation Directions)
+\n
 \n OsmAnd+ — это навигационное приложение с открытым исходным кодом и доступом к широкому спектру глобальных данных OpenStreetMap (OSM). Все данные карт (векторные или растровые/тайловые) могут быть сохранены на карту памяти устройства для автономного использования, без подключения к сети интернет. OsmAnd также предоставляет автономные и онлайн средства построения маршрута, включая пошаговые голосовые подсказки.
 \n 
 \n OsmAnd+ — это платная версия приложения, покупая которую вы поддерживаете проект, финансируете разработку новых функций и получаете последние обновления.
 \n 
-\n Некоторые из основных возможностей приложения: 
-\n - Полностью автономная работа без доступа в сеть интернет (для этого нужно предварительно сохранить карты в память устройства); 
-\n - Компактные автономные векторные карты для всех стран мира; 
-\n - Неограниченная загрузка карт для страны или региона из самого приложения; 
-\n - Автономная Википедия (необходимо предварительно загрузить Wikipedia POI), отличный вариант для достопримечательностей; 
-\n - Наложение на карту дополнительных слоев, например, GPX-треки или навигационные пути, точки интереса POI, избранные местоположения, контурные линии высот, остановки общественного транспорта, дополнительные карты с настраиваемой прозрачностью; 
-\n - Автономный поиск адресов и точек интереса POI без доступа в интернет; 
-\n - Автономное построение маршрутов на средние расстояния без доступа в интернет; 
-\n - Режимы работы приложения для автомобиля, велосипеда или пешехода с возможностями: 
-\n - автоматического переключения на дневной/ночной режим отрисовки карты; 
-\n - изменения масштабы карты в зависимости от скорости; 
+\n Некоторые из основных возможностей приложения:
+\n - Полностью автономная работа без доступа в сеть интернет (для этого нужно предварительно сохранить карты в память устройства);
+\n - Компактные автономные векторные карты для всех стран мира;
+\n - Неограниченная загрузка карт для страны или региона из самого приложения;
+\n - Автономная Википедия (необходимо предварительно загрузить Wikipedia POI), отличный вариант для достопримечательностей;
+\n - Наложение на карту дополнительных слоев, например, GPX-треки или навигационные пути, точки интереса POI, избранные местоположения, контурные линии высот, остановки общественного транспорта, дополнительные карты с настраиваемой прозрачностью;
+\n
+\n - Автономный поиск адресов и точек интереса POI без доступа в интернет;
+\n - Автономное построение маршрутов на средние расстояния без доступа в интернет;
+\n - Режимы работы приложения для автомобиля, велосипеда или пешехода с возможностями:
+\n - автоматического переключения на дневной/ночной режим отрисовки карты;
+\n - изменения масштабы карты в зависимости от скорости;
 \n - вращения карты по компасу или направлению движения;
 \n - подсказки полосы движения, отображение ограничения скорости, предварительно записанные и синтезированные голосовые подсказки
 \n</string>
@@ -1511,12 +1512,12 @@
     <string name="rendering_attr_hideWoodScrubs_name">Леса и кустарники</string>
     <string name="rendering_attr_moreDetailed_name">Более подробно</string>
     <string name="rendering_attr_lessDetailed_name">Менее подробно</string>
-    <string name="rendering_attr_showSurfaceGrade_name">Отображать качество дорог</string>
-    <string name="rendering_attr_showSurfaces_name">Отображать тип покрытия</string>
+    <string name="rendering_attr_showSurfaceGrade_name">Качество дорог</string>
+    <string name="rendering_attr_showSurfaces_name">Тип дорожного покрытия</string>
     <string name="rendering_attr_hideNonVehicleHighways_name">Непроезжие дороги</string>
     <string name="rendering_attr_buildings15zoom_name">Здания на масштабе 15</string>
     <string name="rendering_attr_hideAccess_name">Ограничения доступа</string>
-    <string name="rendering_attr_showAccess_name">Отображать ограничения доступа</string>
+    <string name="rendering_attr_showAccess_name">Ограничения доступа и платный проезд</string>
     <string name="rendering_attr_showCycleRoutes_name">Веломаршруты</string>
     <string name="map_preferred_locale_descr">Предпочтительный язык для меток на карте (если он не доступен, то английский язык или местные названия).</string>
     <string name="map_preferred_locale">Предпочтительный язык на карте</string>
@@ -1581,7 +1582,7 @@
     <string name="record_plugin_description">Плагин активирует функции для записи и сохранения ваших треков вручную нажатием на виджет записи GPX на карте, или также автоматически записывает все ваши маршруты навигации в файл GPX.
 \n 
 \nЗаписанными треками можно поделиться с вашими друзьями или использовать их для вклада в OSM. Спортсмены могут использовать записанные треки для контроля за тренировками. Некоторый базовый анализ треков может быть выполнен непосредственно в OsmAnd, например, время прохождения круга, средняя скорость и т.д., треки, конечно, позднее также могут быть проанализированы в специальных инструментах анализа сторонних производителей.</string>
-    <string name="create_poi_link_to_osm_doc"> string name=\"lat_lon_pattern\"&gt;Широта: %1$.5f Долгота: %2$.5f&lt;/string </string>
+    <string name="create_poi_link_to_osm_doc"><u>Онлайн OSM</u> классификация карт с изображениями.</string>
     <string name="confirm_every_run">Всегда спрашивать</string>
     <string name="save_global_track_interval_descr">Укажите интервал регистрации во время записи трека (включается через виджет записи GPX на карте).</string>
     <string name="save_global_track_interval">Общий интервал записи трека</string>
@@ -2236,7 +2237,7 @@
     <string name="storage_free_space">Свободное место</string>
     <string name="search_location">Определение местоположения…</string>
     <string name="no_inet_connection_desc_map">Требуется загрузить карты</string>
-    <string name="no_inet_connection">Соединение с Интернетом отсутствует</string>
+    <string name="no_inet_connection">Соединение с интернетом отсутствует</string>
     <string name="location_not_found">Не удалось определить местоположение</string>
     <string name="first_usage_wizard_desc">OsmAnd определит ваше местоположение и предложит загрузить карты для этой области.</string>
     <string name="search_map">Поиск карт…</string>
@@ -3194,11 +3195,11 @@
     <string name="sett_wunderlinq_ext_input">WunderLINQ</string>
     <string name="sett_parrot_ext_input">Parrot</string>
     <string name="shared_string_track_is_saved">Трек %s сохранен</string>
-    <string name="rendering_attr_showLez_name">Отображать зоны с низким уровнем выбросов</string>
+    <string name="rendering_attr_showLez_name">Зоны с низким уровнем выбросов</string>
     <string name="temporary_conditional_routing">Учитывать временные ограничения</string>
     <string name="new_route_calculated_dist_dbg">Маршрут: расстояние %s, время навигации %s 
 \nРасчет: %.1f с, %d дорог, %d тайлов)</string>
-    <string name="quick_action_need_to_add_item_to_list">Добавьте хотя бы один элемент в список «Быстрые действия» в настройках</string>
+    <string name="quick_action_need_to_add_item_to_list">Добавьте хотя бы один элемент в список \"Быстрые действия\" в настройках</string>
     <string name="routing_attr_piste_type_skitour_description">Маршруты для горнолыжного туризма.</string>
     <string name="routing_attr_freeride_policy_name">Офпист</string>
     <string name="routing_attr_freeride_policy_description">Фрирайды и офписты являются неофициальными неадаптированными трассами. Обычно неухоженные, неразмеченные и неосвещенные вечером. Вход на свой страх и риск.</string>
@@ -3341,7 +3342,7 @@
     <string name="dialogs_and_notifications_title">Диалоги и уведомления</string>
     <string name="dialogs_and_notifications_descr">Управление всплывающими окнами, диалогами и уведомлениями.</string>
     <string name="add_new_profile_q">Добавить новый профиль \'%1$s\'\?</string>
-    <string name="rendering_attr_showCycleNodeNetworkRoutes_name">Отображать узловые сети велосипедных маршрутов</string>
+    <string name="rendering_attr_showCycleNodeNetworkRoutes_name">Узловые сети велосипедных маршрутов</string>
     <string name="save_heading">Сохранять путевой угол</string>
     <string name="save_heading_descr">Сохранять во время записи путевой угол для каждой точки трека.</string>
     <string name="layer_osm_edits">Правки OSM</string>
@@ -3422,7 +3423,7 @@
     <string name="permission_is_required">Для использования этой функции требуется разрешение.</string>
     <string name="monitoring_min_speed_descr">Это низкоскоростной фильтр отсечки, чтобы не записывать точки ниже определенной скорости. Это может сделать записанные треки более гладкими при просмотре на карте.</string>
     <string name="rearrange_categories">Упорядочить категории</string>
-    <string name="create_custom_categories_list_promo">Вы можете добавлять категории, скрыть те, которые вы не находите необходимыми и изменить порядок. Список может быть импортирован и экспортирован с профилями.</string>
+    <string name="create_custom_categories_list_promo">Изменяйте порядок сортировки списка, скрывайте ненужные категории. Вы можете импортировать или экспортировать все изменения с профилями.</string>
     <string name="add_new_custom_category_button_promo">Вы можете добавить новую пользовательскую категорию, выбрав одну или несколько необходимых категорий.</string>
     <string name="reset_to_default_category_button_promo">Сброс к настройкам по умолчанию приведет к сбросу порядка сортировки к настройкам по умолчанию после установки.</string>
     <string name="add_custom_category">Добавить пользовательскую категорию</string>
@@ -3547,4 +3548,70 @@
     <string name="saving_new_profile">Сохранение нового профиля</string>
     <string name="profile_backup_failed">Не удалось создать резервную копию профиля.</string>
     <string name="clear_recorded_data_warning">Очистить записанные данные\?</string>
+    <string name="monitoring_min_speed_descr_side_effect">Побочный эффект: в записи трека будут отсутствовать все участки, где критерий минимальной скорости не был соблюден (например, когда вы толкаете велосипед вверх по крутому склону). Также не будет информации о периодах покоя, например, во время отдыха. Это влияет на любой анализ или последующую обработку, например, при попытке определить общую продолжительность поездки, время в движении или среднюю скорость.</string>
+    <string name="monitoring_min_accuracy_descr_side_effect">Побочный эффект: в результате фильтрации по точности, точки могут быть полностью пропущены, например, под мостами, под деревьями, между высокими зданиями или при определенных погодных условиях.</string>
+    <string name="monitoring_min_accuracy_descr_remark">Примечание: если GPS был отключен непосредственно перед записью, первая измеренная точка может иметь пониженную точность, поэтому в приложении будет ожидание около секунды перед записью точки (или запись лучшей из 3 последовательных точек и т. д.), но это еще не реализовано.</string>
+    <string name="monitoring_min_distance_descr">Этот фильтр позволяет избежать записи повторяющихся точек, между которыми могло произойти очень малое фактическое перемещение, и создает более приятный визуальный вид треков без последующей обработки.</string>
+    <string name="monitoring_min_distance_descr_side_effect">Побочные эффекты: периоды в состоянии покоя не записываются вообще или только по одной точке каждый. Небольшие (в реальности) перемещения (например, в сторону, указывающие возможное изменение направления движения) могут быть отфильтрованы. Файл содержит меньше информации для последующей обработки и имеет худшую статистику, отфильтровывая явно избыточные точки во время записи, при этом потенциально сохраняя артефакты, вызванные плохим приемом или эффектами модуля GPS.</string>
+    <string name="monitoring_min_distance_descr_recommendation">Рекомендация: настройка 5 метров может должна вас устроить, если нет необходимости учитывать более короткие перемещения, и вы точное не хотите записывать данные в состоянии покоя.</string>
+    <string name="listed_exist">Указанные %1$s уже существуют в OsmAnd.</string>
+    <string name="importing_from">Импорт данных из %1$s</string>
+    <string name="shared_string_importing">Импортирование</string>
+    <string name="checking_for_duplicate_description">OsmAnd проверяет %1$s на дубликаты с существующими объектами в приложении.
+\n
+\nЭто может занять некоторое время.</string>
+    <string name="items_added">Объекты добавлены</string>
+    <string name="shared_string_import_complete">Импорт завершен</string>
+    <string name="import_complete_description">Все данные из %1$s импортированы, вы можете использовать кнопки ниже, чтобы открыть соответствующий раздел приложения для управления ими.</string>
+    <string name="recalculate_route_distance_promo">Маршрут будет пересчитан, если расстояние от маршрута до текущего местоположения больше выбранного значения.</string>
+    <string name="select_distance_route_will_recalc">Выберите расстояние, после которого маршрут будет пересчитан.</string>
+    <string name="shared_string_legend">Легенда</string>
+    <string name="search_offline_geo_error">Невозможно разобрать геоссылку \"%s\".</string>
+    <string name="hillshade_download_description">Для отображения затенения рельефа на карте необходимы дополнительные карты.</string>
+    <string name="shared_string_min">Мин.</string>
+    <string name="terrain_empty_state_text">Отображение затенения рельефа или склонов. Подробнее об этих типах карт вы можете прочитать на нашем сайте.</string>
+    <string name="shared_string_transparency">Прозрачность</string>
+    <string name="shared_string_zoom_levels">Уровни масштаба</string>
+    <string name="recalculate_route_in_deviation">Пересчитывать маршрут в случае отклонения</string>
+    <string name="n_items_of_z">%1$s из %2$s</string>
+    <string name="terrain_slider_description">Настройка минимального и максимального уровней масштабирования, при которых слой будет отображаться.</string>
+    <string name="quick_action_show_hide_terrain">Показать/скрыть рельеф</string>
+    <string name="quick_action_terrain_descr">Кнопка для отображения или скрытия слоя рельефа местности на карте.</string>
+    <string name="quick_action_terrain_show">Показать рельеф</string>
+    <string name="quick_action_terrain_hide">Скрыть рельеф</string>
+    <string name="shared_string_terrain">Рельеф</string>
+    <string name="app_mode_ski_touring">Лыжный туризм</string>
+    <string name="app_mode_ski_snowmobile">Снегоход</string>
+    <string name="custom_osmand_plugin">Пользовательский плагин</string>
+    <string name="delete_description">Удалить описание</string>
+    <string name="add_description">Добавить описание</string>
+    <string name="select_group">Выберите группу</string>
+    <string name="shared_string_square">Квадрат</string>
+    <string name="select_shape">Выберите фигуру</string>
+    <string name="shared_string_circle">Круг</string>
+    <string name="shared_string_octagon">Восьмиугольник</string>
+    <string name="accessibility_announce">Сообщение о доступности</string>
+    <string name="monitoring_min_speed_descr_remark">Примечание: проверка скорости &gt; 0: большинство модулей GPS сообщают значение скорости только в том случае, если алгоритм определяет, что вы движетесь, и ничего, если вы не перемещаетесь. Следовательно, использование параметра &gt; 0 в этом фильтре в некотором смысле приводит к обнаружению факта перемещения модуля GPS. Но даже если мы не производим данную фильтрацию во время записи, то все равно эта функция используется при анализе GPX для определения скорректированного расстояния, то есть значение, отображаемое в этом поле, является расстоянием, записанным во время движения.</string>
+    <string name="multimedia_rec_split_title">Разделение записи</string>
+    <string name="live_monitoring_adress_descr">Укажите веб-адрес со следующими параметрами: lat={0}, lon={1}, timestamp={2}, hdop={3}, altitude={4}, speed={5}, bearing={6}.</string>
+    <string name="monitoring_min_accuracy_descr">В этом случае будут записываться только точки, измеренные с минимальной точностью (в метрах/футах согласно настройкам устройства). Точность относится к разбросу повторяющихся измерений и не связана непосредственно с точностью, которая определяет, насколько ваши измерения близки к вашему истинному положению.</string>
+    <string name="monitoring_min_speed_descr_recommendation">Рекомендация: попробуйте сначала воспользоваться детектором движения через фильтр минимального смещения (B), что может дать лучшие результаты и вы потеряете меньше данных. Если треки остаются шумными на низких скоростях, попробуйте использовать ненулевые значения. Обратите внимание, что некоторые измерения могут вообще не указывать значения скорости (некоторые сетевые методы), и в этом случае ничего не будет записываться.</string>
+    <string name="slope_description">Склон выделяется цветовой визуализацией на рельефе местности.</string>
+    <string name="slope_read_more">Подробнее о склонах можно прочитать в %1$s.</string>
+    <string name="shared_string_hillshade">Затенение рельефа</string>
+    <string name="hillshade_description">Затенение рельефа использует темные оттенки для отображения склонов, вершин и низменностей.</string>
+    <string name="slope_download_description">Для отображения склонов на карте необходимы дополнительные карты.</string>
+    <string name="download_slope_maps">Склоны</string>
+    <string name="replace_point_descr">Заменить другую точку на эту</string>
+    <string name="changes_applied_to_profile">Изменения применены к профилю %1$s.</string>
+    <string name="settings_item_read_error">Невозможно прочитать %1$s.</string>
+    <string name="settings_item_write_error">Невозможно записать %1$s.</string>
+    <string name="settings_item_import_error">Невозможно импортировать %1$s.</string>
+    <string name="select_track_file">Выберите файл трека</string>
+    <string name="wikipedia_poi_languages_promo">Некоторые статьи Википедии могут быть недоступны на вашем родном языке, выберите языки, на которых такие статьи будут отображаться на карте.
+\nВы сможете переключаться между всеми доступными языками во время чтения статьи.</string>
+    <string name="shared_string_languages">Языки</string>
+    <string name="shared_string_language">Язык</string>
+    <string name="shared_string_all_languages">Все языки</string>
+    <string name="wiki_menu_download_descr">Для просмотра POI Википедии на карте необходимы дополнительные карты.</string>
 </resources>

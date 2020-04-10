@@ -10,6 +10,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
@@ -64,6 +65,7 @@ import net.osmand.plus.helpers.AndroidUiHelper;
 import net.osmand.plus.mapcontextmenu.MapContextMenu;
 import net.osmand.plus.monitoring.OsmandMonitoringPlugin;
 import net.osmand.plus.myplaces.FavoritesActivity;
+import net.osmand.plus.quickaction.QuickActionType;
 import net.osmand.plus.settings.BaseSettingsFragment;
 import net.osmand.plus.views.MapInfoLayer;
 import net.osmand.plus.views.OsmandMapLayer.DrawSettings;
@@ -104,10 +106,11 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 	public static final String THREEGP_EXTENSION = "3gp";
 	public static final String MPEG4_EXTENSION = "mp4";
 	public static final String IMG_EXTENSION = "jpg";
-	private static final Log log = PlatformUtil.getLog(AudioVideoNotesPlugin.class);
 	public static final int CAMERA_FOR_VIDEO_REQUEST_CODE = 101;
 	public static final int CAMERA_FOR_PHOTO_REQUEST_CODE = 102;
 	public static final int AUDIO_REQUEST_CODE = 103;
+
+	private static final Log log = PlatformUtil.getLog(AudioVideoNotesPlugin.class);
 
 	// Constants for determining the order of items in the additional actions context menu
 	private static final int TAKE_AUDIO_NOTE_ITEM_ORDER = 4100;
@@ -116,7 +119,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 
 //	private static Method mRegisterMediaButtonEventReceiver;
 //	private static Method mUnregisterMediaButtonEventReceiver;
-	private OsmandApplication app;
+
 	private TextInfoWidget recordControl;
 
 	public final CommonPreference<Boolean> AV_EXTERNAL_RECORDER;
@@ -538,7 +541,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 	}
 
 	public AudioVideoNotesPlugin(OsmandApplication app) {
-		this.app = app;
+		super(app);
 		ApplicationMode.regWidgetVisibility("audionotes", (ApplicationMode[]) null);
 		AV_EXTERNAL_RECORDER = registerBooleanPreference(app, "av_external_recorder", false);
 		AV_EXTERNAL_PHOTO_CAM = registerBooleanPreference(app, "av_external_cam", true);
@@ -868,6 +871,14 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 		mapActivity.startActivityForResult(intent, 205);
 	}
 
+	@Override
+	protected List<QuickActionType> getQuickActionTypes() {
+		ArrayList<QuickActionType> quickActionTypes = new ArrayList<>();
+		quickActionTypes.add(TakeAudioNoteAction.TYPE);
+		quickActionTypes.add(TakePhotoNoteAction.TYPE);
+		quickActionTypes.add(TakeVideoNoteAction.TYPE);
+		return quickActionTypes;
+	}
 
 	@Override
 	public void mapActivityScreenOff(MapActivity activity) {
@@ -1216,7 +1227,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 
 	private void muteStreamMusicAndOutputGuidance() {
         AudioManager am = (AudioManager)app.getSystemService(Context.AUDIO_SERVICE);
-        int voiceGuidanceOutput = app.getSettings().AUDIO_STREAM_GUIDANCE.get();
+        int voiceGuidanceOutput = app.getSettings().AUDIO_MANAGER_STREAM.get();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             am.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_MUTE, 0);
             if (voiceGuidanceOutput != AudioManager.STREAM_MUSIC)
@@ -1230,7 +1241,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 
     private void unmuteStreamMusicAndOutputGuidance() {
         AudioManager am = (AudioManager) app.getSystemService(Context.AUDIO_SERVICE);
-        int voiceGuidanceOutput = app.getSettings().AUDIO_STREAM_GUIDANCE.get();
+        int voiceGuidanceOutput = app.getSettings().AUDIO_MANAGER_STREAM.get();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             am.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE, 0);
             if (voiceGuidanceOutput != AudioManager.STREAM_MUSIC)
@@ -2101,8 +2112,8 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 	}
 
 	@Override
-	public int getAssetResourceName() {
-		return R.drawable.audio_video_notes;
+	public Drawable getAssetResourceImage() {
+		return app.getUIUtilities().getIcon(R.drawable.audio_video_notes);
 	}
 
 	@Override

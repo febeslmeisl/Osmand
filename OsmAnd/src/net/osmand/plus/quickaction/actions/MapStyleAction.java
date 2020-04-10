@@ -18,6 +18,7 @@ import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.dialogs.ConfigureMapMenu;
 import net.osmand.plus.openseamapsplugin.NauticalMapsPlugin;
 import net.osmand.plus.quickaction.QuickAction;
+import net.osmand.plus.quickaction.QuickActionType;
 import net.osmand.plus.quickaction.SwitchableAction;
 import net.osmand.plus.render.RendererRegistry;
 import net.osmand.plus.views.OsmandMapTileView;
@@ -28,12 +29,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class MapStyleAction extends SwitchableAction<String> {
 
-	public static final int TYPE = 14;
 
 	private final static String KEY_STYLES = "styles";
+	public static final QuickActionType TYPE = new QuickActionType(14,
+			"mapstyle.change", MapStyleAction.class).
+			nameRes(R.string.quick_action_map_style).iconRes(R.drawable.ic_map).
+			category(QuickActionType.CONFIGURE_MAP);
+
 
 	public MapStyleAction() {
 		super(TYPE);
@@ -41,6 +47,16 @@ public class MapStyleAction extends SwitchableAction<String> {
 
 	public MapStyleAction(QuickAction quickAction) {
 		super(quickAction);
+	}
+
+	@Override
+	public String getSelectedItem(OsmandApplication app) {
+		RenderingRulesStorage current = app.getRendererRegistry().getCurrentSelectedRenderer();
+		if (current != null) {
+			return current.getName();
+		} else {
+			return  RendererRegistry.DEFAULT_RENDER;
+		}
 	}
 
 	@Override
@@ -143,20 +159,26 @@ public class MapStyleAction extends SwitchableAction<String> {
 				AlertDialog.Builder bld = new AlertDialog.Builder(themedContext);
 				bld.setTitle(R.string.renderers);
 
-				final List<String> visibleNamesList = new ArrayList<>();
-				final ArrayList<String> items = new ArrayList<>(app.getRendererRegistry().getRendererNames());
-				final boolean nauticalPluginDisabled = OsmandPlugin.getEnabledPlugin(NauticalMapsPlugin.class) == null;
+				Map<String, String> renderers = app.getRendererRegistry().getRenderers();
+				List<String> disabledRendererNames = OsmandPlugin.getDisabledRendererNames();
 
-				Iterator<String> iterator = items.iterator();
-				while (iterator.hasNext()) {
-					String item = iterator.next();
-					if (nauticalPluginDisabled && item.equals(RendererRegistry.NAUTICAL_RENDER)) {
-						iterator.remove();
-					} else {
-						String translation = RendererRegistry.getTranslatedRendererName(activity, item);
-						visibleNamesList.add(translation != null ? translation
-								: item.replace('_', ' ').replace('-', ' '));
+				if (!Algorithms.isEmpty(disabledRendererNames)) {
+					Iterator<Map.Entry<String, String>> iterator = renderers.entrySet().iterator();
+					while (iterator.hasNext()) {
+						String rendererVal = iterator.next().getValue();
+						String rendererFileName = Algorithms.getFileWithoutDirs(rendererVal);
+						if (disabledRendererNames.contains(rendererFileName)) {
+							iterator.remove();
+						}
 					}
+				}
+
+				List<String> visibleNamesList = new ArrayList<>();
+				final List<String> items = new ArrayList<>(renderers.keySet());
+				for (String item : items) {
+					String translation = RendererRegistry.getTranslatedRendererName(activity, item);
+					visibleNamesList.add(translation != null ? translation
+							: item.replace('_', ' ').replace('-', ' '));
 				}
 
 				final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(themedContext, R.layout.dialog_text_item);

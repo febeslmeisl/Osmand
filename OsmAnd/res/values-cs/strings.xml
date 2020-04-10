@@ -2023,7 +2023,7 @@ Délka %2$s</string>
     <string name="gpx_no_tracks_title">Nemáte zatím žádné GPX soubory</string>
     <string name="gpx_no_tracks_title_folder">Do složky můžete také přidat GPX soubory</string>
     <string name="gpx_add_track">Přidat další…</string>
-    <string name="gpx_appearance">Vzhled</string>
+    <string name="shared_string_appearance">Vzhled</string>
     <string name="trip_rec_notification_settings">Povolit rychlé spuštění záznamu</string>
     <string name="trip_rec_notification_settings_desc">Zobrazit systémové oznámení, které umožňuje spustit nahrávání.</string>
     <string name="shared_string_notifications">Oznámení</string>
@@ -3087,10 +3087,10 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="routing_attr_difficulty_preference_name">Preferovaná obtížnost</string>
     <string name="routing_attr_freeride_policy_name">Mimo sjezdovky</string>
     <string name="rate_dialog_descr">Prosím, dejte nám zpětnou vazbu a ohodnoťte naši práci na Google Play.</string>
-    <string name="make_osmand_better_descr">Povolit aplikaci OsmAnd sbírat a zpracovávat anonymní data využívání aplikace. Nesbíráme ani neukládáme data o vaší poloze nebo jakýchkoli polohách zobrazených na mapě.
-\n
-\nKdykoliv můžete změnit vaši volbu v Nastavení &gt; Soukromí a zabezpečení.</string>
-    <string name="downloaded_maps_collect_descr">Pomozte nám pochopit, které regiony a země map jsou nejpopulárnější.</string>
+    <string name="make_osmand_better_descr">Povolit aplikaci OsmAnd sbírat a zpracovávat anonymní data využívání aplikace. Nesbíráme ani neukládáme data o vaší poloze nebo jakýchkoli polohách zobrazených na mapě. 
+\n 
+\nSvoji volbu můžete kdykoliv změnit v Nastavení &gt; Soukromí a zabezpečení.</string>
+    <string name="downloaded_maps_collect_descr">Pomozte nám pochopit, které regiony a země jsou v mapách nejpopulárnější.</string>
     <string name="visited_screens_collect_descr">Pomozte nám pochopit, které funkce OsmAnd jsou nejpopulárnější.</string>
     <string name="osmand_routing_promo">Můžete přidat vaši vlastní upravenou verzi souboru routing.xml v ..osmand/routing</string>
     <string name="press_again_to_change_the_map_orientation">Klepněte znovu pro změnu orientace mapy</string>
@@ -3109,12 +3109,12 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="precision_hdop">Přesnost vodorovně: %s</string>
     <string name="app_mode_offroad">Terénní</string>
     <string name="edit_profile_setup_title">Nastavit profil</string>
-    <string name="edit_profile_setup_subtitle">Profil si udrží jeho vlastní nastavení</string>
+    <string name="edit_profile_setup_subtitle">Profil si udrží své vlastní nastavení</string>
     <string name="edit_profile_setup_map_subtitle">Vybrat výchozí nastavení mapy u profilu</string>
     <string name="edit_profile_screen_options_subtitle">Vybrat výchozí nastavení obrazovky u profilu</string>
     <string name="edit_profile_nav_settings_subtitle">Vybrat výchozí nastavení navigace u profilu</string>
-    <string name="routing_attr_max_num_changes_description">Určete max. počet změn</string>
-    <string name="routing_attr_max_num_changes_name">Počet změn</string>
+    <string name="routing_attr_max_num_changes_description">Určete maximální počet přestupů</string>
+    <string name="routing_attr_max_num_changes_name">Počet přestupů</string>
     <string name="turn_screen_on_router">Probudit na odbočce</string>
     <string name="turn_screen_on_time_descr">Nastavte čas, po který bude obrazovka zapnutá.</string>
     <string name="turn_screen_on_sensor">Použít senzor přiblížení</string>
@@ -3157,22 +3157,22 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="app_mode_wagon">Dodávkové auto</string>
     <string name="app_mode_pickup_truck">Pickup auto</string>
     <string name="day">Den</string>
-    <string name="days_2_4">Dnů</string>
+    <string name="days_2_4">Dny</string>
     <string name="days_5">Dnů</string>
     <string name="week">Týden</string>
-    <string name="weeks_2_4">Týdnů</string>
+    <string name="weeks_2_4">Týdny</string>
     <string name="weeks_5">Týdnů</string>
     <string name="month">Měsíc</string>
-    <string name="months_2_4">Měsíců</string>
+    <string name="months_2_4">Měsíce</string>
     <string name="months_5">Měsíců</string>
     <string name="year">Rok</string>
-    <string name="years_2_4">Let</string>
+    <string name="years_2_4">Roky</string>
     <string name="years_5">Let</string>
     <string name="months_3">Tři měsíce</string>
     <string name="price_free">Zdarma</string>
     <string name="get_discount_title">Získejte %1$d %2$s při slevě %3$s.</string>
-    <string name="get_discount_first_part">%1$s za prvé %2$s</string>
-    <string name="get_discount_first_few_part">%1$s za prvé %2$s</string>
+    <string name="get_discount_first_part">%1$s za první %2$s</string>
+    <string name="get_discount_first_few_part">%1$s za první %2$s</string>
     <string name="get_discount_second_part">potom %1$s</string>
     <string name="cancel_subscription">Zrušit předplatné</string>
     <string name="price_and_discount">%1$s • Ušetřete %2$s</string>
@@ -3227,7 +3227,7 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="data_storage_space_description">Volno %1$s GB (z %2$s GB)</string>
     <string name="enter_path_to_folder">Zadejte cestu k adresáři</string>
     <string name="shared_string_select_folder">Adresář…</string>
-    <string name="paste_Osmand_data_folder_path">Zadejte cestu ke adresáři s OsmAnd daty</string>
+    <string name="paste_Osmand_data_folder_path">Zadejte cestu k adresáři s OsmAnd daty</string>
     <string name="change_osmand_data_folder_question">Změnit adresář pro OsmAnd data\?</string>
     <string name="move_maps_to_new_destination">Přesunout do nového umístění</string>
     <string name="internal_app_storage_description">Vnitřní úložiště, skryté před uživateli a aplikacemi, přístupné výhradně pro OsmAnd</string>
@@ -3267,7 +3267,7 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="overwrite_profile_q">Profil „%1$s“ již existuje. Přepsat\?</string>
     <string name="export_profile_failed">Profil nelze exportovat.</string>
     <string name="profile_import">Import profilu:</string>
-    <string name="profile_import_descr">Pro import profilu, vyberte soubor profilu ze zařízení a otevřete ho pomocí OsmAnd.</string>
+    <string name="profile_import_descr">Přidejte profil otevřením jeho souboru pomocí OsmAnd.</string>
     <string name="file_import_error">%1$s chyba importu: %2$s</string>
     <string name="file_imported_successfully">Úspěšně importováno: %1$s</string>
     <string name="swap_two_places">Prohodit %1$s a %2$s</string>
@@ -3287,4 +3287,55 @@ Zobrazená oblast: %1$s x %2$s</string>
     <string name="new_plugin_added">Přidán nový modul</string>
     <string name="add_new_profile_q">Přidat nový profil „%1$s“\?</string>
     <string name="routing_attr_allow_classic_only_description">Trasy upravené pro klasické lyžování bez bruslení. Zahrnuje trasy upravené menšími sněžnými vozidly a stopy vytvořené samotnými lyžaři.</string>
+    <string name="routing_attr_allow_skating_only_name">Povolit pouze trasy pro bruslení na lyžích</string>
+    <string name="app_mode_ski_snowmobile">Sněžný skútr</string>
+    <string name="custom_osmand_plugin">Vlastní modul pro OsmAnd</string>
+    <string name="changes_applied_to_profile">Změny aplikovány na profil %1$s.</string>
+    <string name="settings_item_read_error">Nelze přečíst %1$s.</string>
+    <string name="settings_item_write_error">Nelze zapsat %1$s.</string>
+    <string name="settings_item_import_error">Nelze importovat %1$s.</string>
+    <string name="shared_string_hillshade">Stínování svahů</string>
+    <string name="shared_string_terrain">Terén</string>
+    <string name="hillshade_description">Stínované svahy používají tmavé odstíny pro vyjádření svahů, vrcholů a nížin.</string>
+    <string name="slope_description">Svahy jsou barevné vizualizace terénu.</string>
+    <string name="terrain_slider_description">Nastavte minimální a maximální úroveň přiblížení, při které bude vrstva zobrazená.</string>
+    <string name="hillshade_download_description">Pro zobrazení stínování kopců jsou potřeba další mapy.</string>
+    <string name="slope_download_description">Pro zobrazení svahů jsou potřeba další mapy.</string>
+    <string name="slope_read_more">O svazích si můžete přečíst více na %1$s.</string>
+    <string name="shared_string_transparency">Průhlednost</string>
+    <string name="shared_string_zoom_levels">Úrovně přiblížení</string>
+    <string name="shared_string_legend">Legenda</string>
+    <string name="terrain_empty_state_text">Zapněte pro zobrazení stínovaných svahů. O tomto typu map se dozvíte více na našich stránkách</string>
+    <string name="import_complete_description">Všechna data z %1$s jsou naimportovaná, můžete použít tlačítka níže k otevření části aplikace pro jejich správu.</string>
+    <string name="shared_string_import_complete">Import dokončen</string>
+    <string name="items_added">Položky přidány</string>
+    <string name="checking_for_duplicate_description">OsmAnd kontroluje %1$s na duplicity s existujícími položkami v aplikaci.
+\n
+\nMůže to chvíli trvat.</string>
+    <string name="shared_string_importing">Importování</string>
+    <string name="importing_from">Importování dat z %1$s</string>
+    <string name="profile_backup_failed">Nepodařilo se zálohovat profil.</string>
+    <string name="saving_new_profile">Ukládání nového profilu</string>
+    <string name="restore_all_profile_settings">Obnovit všechna nastavení profilu\?</string>
+    <string name="restore_all_profile_settings_descr">Po vytvoření/importování tohoto profilu budou všechna nastavení profilu resetována do původního stavu.</string>
+    <string name="clear_recorded_data_warning">Opravdu chcete vymazat zaznamenané údaje\?</string>
+    <string name="recalculate_route_in_deviation">Přepočítat trasu v případě odchýlení</string>
+    <string name="select_distance_route_will_recalc">Zvolte vzdálenost, při které bude trasa přepočítána.</string>
+    <string name="recalculate_route_distance_promo">Trasa bude přepočítaná pokud vzdálenost od trasy k aktuální poloze je větší než zvolená hodnota.</string>
+    <string name="n_items_of_z">%1$s z %2$s</string>
+    <string name="download_slope_maps">Svahy</string>
+    <string name="quick_action_show_hide_terrain">Zobrazit/skrýt terén</string>
+    <string name="quick_action_terrain_hide">Skrýt terén</string>
+    <string name="quick_action_terrain_show">Zobrazit terén</string>
+    <string name="quick_action_terrain_descr">Tlačítko pro zobrazení nebo skrytí vrstvy terénu na mapě.</string>
+    <string name="delete_description">Smazat popis</string>
+    <string name="add_description">Přidat popis</string>
+    <string name="select_group">Vyberte skupinu</string>
+    <string name="select_shape">Vyberte tvar</string>
+    <string name="shared_string_circle">Kruh</string>
+    <string name="shared_string_octagon">Osmiúhelník</string>
+    <string name="shared_string_square">Čtverec</string>
+    <string name="shared_string_min">Min</string>
+    <string name="replace_point_descr">Nahradit jiný bod tímto</string>
+    <string name="app_mode_ski_touring">Lyžařské okruhy</string>
 </resources>

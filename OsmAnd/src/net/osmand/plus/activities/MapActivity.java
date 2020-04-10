@@ -112,6 +112,9 @@ import net.osmand.plus.mapcontextmenu.AdditionalActionsBottomSheetDialogFragment
 import net.osmand.plus.mapcontextmenu.MapContextMenu;
 import net.osmand.plus.mapcontextmenu.MenuController.MenuState;
 import net.osmand.plus.mapcontextmenu.builders.cards.dialogs.ContextMenuCardDialogFragment;
+import net.osmand.plus.mapcontextmenu.editors.FavoritePointEditor;
+import net.osmand.plus.mapcontextmenu.editors.PointEditorFragmentNew;
+import net.osmand.plus.mapcontextmenu.editors.WptPtEditor;
 import net.osmand.plus.mapcontextmenu.other.DestinationReachedMenu;
 import net.osmand.plus.mapcontextmenu.other.TrackDetailsMenu;
 import net.osmand.plus.mapmarkers.MapMarkersDialogFragment;
@@ -700,6 +703,13 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 				return;
 			}
 		}
+
+		PointEditorFragmentNew pointEditorFragmentNew = getPointEditorFragmentNew();
+		if (pointEditorFragmentNew != null) {
+			pointEditorFragmentNew.showExitDialog();
+			return;
+		}
+
 		if (mapContextMenu.isVisible() && mapContextMenu.isClosable()) {
 			if (mapContextMenu.getCurrentMenuState() != MenuState.HEADER_ONLY && !isLandscapeLayout()) {
 				mapContextMenu.openMenuHeaderOnly();
@@ -798,8 +808,8 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 
 		// for voice navigation
 		ApplicationMode routingAppMode = getRoutingHelper().getAppMode();
-		if (routingAppMode != null && settings.AUDIO_STREAM_GUIDANCE.getModeValue(routingAppMode) != null) {
-			setVolumeControlStream(settings.AUDIO_STREAM_GUIDANCE.getModeValue(routingAppMode));
+		if (routingAppMode != null && settings.AUDIO_MANAGER_STREAM.getModeValue(routingAppMode) != null) {
+			setVolumeControlStream(settings.AUDIO_MANAGER_STREAM.getModeValue(routingAppMode));
 		} else {
 			setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		}
@@ -2457,6 +2467,15 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 
 	public ImportCompleteFragment getImportCompleteFragment() {
 		return getFragment(ImportCompleteFragment.TAG);
+	}
+
+	public PointEditorFragmentNew getPointEditorFragmentNew() {
+		PointEditorFragmentNew pointEditorFragmentNew;
+		pointEditorFragmentNew = getFragment(FavoritePointEditor.TAG);
+		if (pointEditorFragmentNew == null) {
+			pointEditorFragmentNew = getFragment(WptPtEditor.TAG);
+		}
+		return pointEditorFragmentNew;
 	}
 
 	public void backToConfigureProfileFragment() {

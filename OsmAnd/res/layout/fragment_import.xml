@@ -4,7 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="?attr/activity_background_basic">
+	android:background="?attr/activity_background_color">
 
 	<ExpandableListView
 		android:id="@+id/list"
@@ -103,7 +103,7 @@
 			android:id="@+id/toolbar_layout"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/toolbar_height_expanded"
-			android:background="?attr/colorPrimary"
+			android:background="?attr/actionModeBackground"
 			osmand:expandedTitleMarginBottom="@dimen/content_padding_small"
 			osmand:expandedTitleMarginEnd="@dimen/content_padding"
 			osmand:expandedTitleMarginStart="@dimen/content_padding"
@@ -127,14 +127,16 @@
 
 		</com.google.android.material.appbar.CollapsingToolbarLayout>
 
-		<ProgressBar
+		<me.zhanghai.android.materialprogressbar.MaterialProgressBar
 			android:id="@+id/progress_bar"
-			style="?android:attr/progressBarStyleHorizontal"
+			style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:indeterminate="true"
-			android:minHeight="0dp"
+			android:layout_height="5dp"
 			android:visibility="gone"
+			android:indeterminate="true"
+			osmand:mpb_progressStyle="horizontal"
+			osmand:mpb_setBothDrawables="true"
+			osmand:mpb_useIntrinsicPadding="false"
 			tools:visibility="visible" />
 
 	</com.google.android.material.appbar.AppBarLayout>

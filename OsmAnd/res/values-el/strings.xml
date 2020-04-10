@@ -1925,7 +1925,7 @@
     <string name="gpx_no_tracks_title">Δεν έχετε ακόμα αρχεία GPX</string>
     <string name="gpx_no_tracks_title_folder">Μπορείτε επίσης να προσθέσετε αρχεία GPX στον φάκελο</string>
     <string name="gpx_add_track">Προσθήκη περισσότερων…</string>
-    <string name="gpx_appearance">Εμφάνιση</string>
+    <string name="shared_string_appearance">Εμφάνιση</string>
     <string name="trip_rec_notification_settings">Ενεργοποίηση γρήγορης καταγραφής</string>
     <string name="trip_rec_notification_settings_desc">Εμφάνιση ειδοποίησης συστήματος που επιτρέπει την καταγραφή ταξιδιού.</string>
     <string name="shared_string_notifications">Ειδοποιήσεις</string>
@@ -2509,7 +2509,7 @@
     <string name="index_name_netherlands">Ευρώπη - Κάτω Χώρες</string>
     <string name="shared_string_others">Άλλα</string>
     <string name="shared_string_release">Εκδόθηκε</string>
-    <string name="create_poi_link_to_osm_doc"> string name=\"lat_lon_pattern\"&gt;Γ. Πλ:%1$.5f Γ. Μηκ: %2$.5f&lt;/string </string>
+    <string name="create_poi_link_to_osm_doc"><u>Online OSM</u>κατηγοριοποίηση χάρτη με εικόνες.</string>
     <string name="share_fav_subject">Αγαπημένα που μοιράστηκαν μέσω του OsmAnd</string>
     <string name="favourites_context_menu_add">Προσθήκη αγαπημένου</string>
     <string name="poi_action_delete">διαγραφή</string>

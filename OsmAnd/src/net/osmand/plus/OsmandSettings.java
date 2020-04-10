@@ -959,7 +959,7 @@ public class OsmandSettings {
 		}
 	}
 
-	private class FloatPreference extends CommonPreference<Float> {
+	public class FloatPreference extends CommonPreference<Float> {
 
 
 		private FloatPreference(String id, float defaultValue) {
@@ -1012,42 +1012,58 @@ public class OsmandSettings {
 			super(id, defaultValue);
 			this.delimiter = delimiter;
 		}
-		
+
 		public boolean addValue(String res) {
-			String vl = get();
+			return addModeValue(getApplicationMode(), res);
+		}
+
+		public boolean addModeValue(ApplicationMode appMode, String res) {
+			String vl = getModeValue(appMode);
 			if (vl == null || vl.isEmpty()) {
 				vl = res + delimiter;
 			} else {
 				vl = vl + res + delimiter;
 			}
-			set(vl);
+			setModeValue(appMode, vl);
 			return true;
 		}
-		
+
 		public void clearAll() {
-			set("");
+			clearAllForProfile(getApplicationMode());
+		}
+
+		public void clearAllForProfile(ApplicationMode appMode) {
+			setModeValue(appMode, "");
 		}
 		
 		public boolean containsValue(String res) {
-			String vl = get();
+			return containsValue(getApplicationMode(), res);
+		}
+
+		public boolean containsValue(ApplicationMode appMode, String res) {
+			String vl = getModeValue(appMode);
 			String r = res + delimiter;
-			return vl.startsWith(r) || vl.indexOf(delimiter + r) >= 0;
+			return vl.startsWith(r) || vl.contains(delimiter + r);
 		}
 		
 		public boolean removeValue(String res) {
-			String vl = get();
+			return removeValueForProfile(getApplicationMode(), res);
+		}
+
+		public boolean removeValueForProfile(ApplicationMode appMode, String res) {
+			String vl = getModeValue(appMode);
 			String r = res + delimiter;
 			if(vl != null) {
 				if(vl.startsWith(r)) {
 					vl = vl.substring(r.length());
-					set(vl);
+					setModeValue(appMode, vl);
 					return true;
 				} else {
 					int it = vl.indexOf(delimiter + r);
 					if(it >= 0) {
 						vl = vl.substring(0, it + delimiter.length()) + vl.substring(it + delimiter.length() + r.length());
 					}
-					set(vl);
+					setModeValue(appMode, vl);
 					return true;
 				}
 			}
@@ -1055,7 +1071,11 @@ public class OsmandSettings {
 		}
 
 		public List<String> getStringsList() {
-			final String listAsString = get();
+			return getStringsListForProfile(getApplicationMode());
+		}
+
+		public List<String> getStringsListForProfile(ApplicationMode appMode) {
+			final String listAsString = getModeValue(appMode);
 			if (listAsString != null) {
 				if (listAsString.contains(delimiter)) {
 					return Arrays.asList(listAsString.split(delimiter));
@@ -1069,13 +1089,17 @@ public class OsmandSettings {
 		}
 
 		public void setStringsList(List<String> values) {
+			setStringsListForProfile(getApplicationMode(), values);
+		}
+
+		public void setStringsListForProfile(ApplicationMode appMode, List<String> values) {
 			if (values == null || values.size() == 0) {
-				set(null);
+				setModeValue(appMode, null);
 				return;
 			}
-			clearAll();
+			clearAllForProfile(appMode);
 			for (String value : values) {
-				addValue(value);
+				addModeValue(appMode, value);
 			}
 		}
 	}
@@ -1261,6 +1285,9 @@ public class OsmandSettings {
 
 	public final CommonPreference<Boolean> WIKI_ARTICLE_SHOW_IMAGES_ASKED = new BooleanPreference("wikivoyage_show_images_asked", false).makeGlobal();
 	public final CommonPreference<WikiArticleShowImages> WIKI_ARTICLE_SHOW_IMAGES = new EnumIntPreference<>("wikivoyage_show_imgs", WikiArticleShowImages.OFF, WikiArticleShowImages.values()).makeGlobal();
+	public final CommonPreference<Boolean> SHOW_WIKIPEDIA_POI = new BooleanPreference("show_wikipedia_poi", false).makeProfile();
+	public final CommonPreference<Boolean> GLOBAL_WIKIPEDIA_POI_ENABLED = new BooleanPreference("global_wikipedia_poi_enabled", false).makeProfile();
+	public final ListStringPreference WIKIPEDIA_POI_ENABLED_LANGUAGES = (ListStringPreference) new ListStringPreference("wikipedia_poi_enabled_languages", null, ",").makeProfile().cache();
 
 	public final CommonPreference<Boolean> SELECT_MARKER_ON_SINGLE_TAP = new BooleanPreference("select_marker_on_single_tap", false).makeProfile();
 	public final CommonPreference<Boolean> KEEP_PASSED_MARKERS_ON_MAP = new BooleanPreference("keep_passed_markers_on_map", true).makeProfile();
@@ -1287,6 +1314,7 @@ public class OsmandSettings {
 
 	public final CommonPreference<String> API_NAV_DRAWER_ITEMS_JSON = new StringPreference("api_nav_drawer_items_json", "{}").makeGlobal();
 	public final CommonPreference<String> API_CONNECTED_APPS_JSON = new StringPreference("api_connected_apps_json", "[]").makeGlobal();
+	public final CommonPreference<String> NAV_DRAWER_LOGO = new StringPreference("nav_drawer_logo", "").makeProfile();
 
 	public final CommonPreference<Integer> NUMBER_OF_STARTS_FIRST_XMAS_SHOWN = new IntPreference("number_of_starts_first_xmas_shown", 0).makeGlobal();
 
@@ -2060,7 +2088,7 @@ public class OsmandSettings {
 	public final OsmandPreference<Integer> LEVEL_TO_SWITCH_VECTOR_RASTER = new IntPreference("level_to_switch_vector_raster", 1).makeGlobal().cache();
 
 	// this value string is synchronized with settings_pref.xml preference name
-	public final OsmandPreference<Integer> AUDIO_STREAM_GUIDANCE = new IntPreference("audio_stream", 3/*AudioManager.STREAM_MUSIC*/) {
+	public final OsmandPreference<Integer> AUDIO_MANAGER_STREAM = new IntPreference("audio_stream", 3/*AudioManager.STREAM_MUSIC*/) {
 		@Override
 		protected boolean setValue(Object prefs, Integer stream) {
 			boolean valueSaved = super.setValue(prefs, stream);
@@ -2090,12 +2118,34 @@ public class OsmandSettings {
 			12/*AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE*/).makeProfile();
 
 	// For now this can be changed only in TestVoiceActivity
-	public final OsmandPreference<Integer> BT_SCO_DELAY = new IntPreference("bt_sco_delay",	1500).makeGlobal().cache();
+	public final OsmandPreference<Integer>[] VOICE_PROMPT_DELAY = new IntPreference[10];
+
+	{
+		// 1500 ms delay works for most configurations to establish a BT SCO link
+		VOICE_PROMPT_DELAY[0] = new IntPreference("voice_prompt_delay_0", 1500).makeGlobal().cache(); /*AudioManager.STREAM_VOICE_CALL*/
+		// On most devices sound output works pomptly so usually no voice prompt delay needed
+		VOICE_PROMPT_DELAY[3] = new IntPreference("voice_prompt_delay_3", 0).makeGlobal().cache();    /*AudioManager.STREAM_MUSIC*/
+		VOICE_PROMPT_DELAY[5] = new IntPreference("voice_prompt_delay_5", 0).makeGlobal().cache();    /*AudioManager.STREAM_NOTIFICATION*/
+	}
 
 	// this value string is synchronized with settings_pref.xml preference name
 	public final CommonPreference<Boolean> MAP_ONLINE_DATA = new BooleanPreference("map_online_data", false).makeProfile();
 
-	public final CommonPreference<Boolean> HILLSHADE = new BooleanPreference("hillshade_layer", true).makeProfile();
+	public final CommonPreference<TerrainMode> TERRAIN_MODE = new EnumIntPreference<>("terrain_mode", TerrainMode.HILLSHADE, TerrainMode.values()).makeProfile();
+
+	public final CommonPreference<Integer> HILLSHADE_MIN_ZOOM = new IntPreference("hillshade_min_zoom", 3).makeProfile();
+
+	public final CommonPreference<Integer> HILLSHADE_MAX_ZOOM = new IntPreference("hillshade_max_zoom", 17).makeProfile();
+
+	public final CommonPreference<Integer> HILLSHADE_TRANSPARENCY = new IntPreference("hillshade_transparency", 100).makeProfile();
+
+	public final CommonPreference<Integer> SLOPE_MIN_ZOOM = new IntPreference("slope_min_zoom", 3).makeProfile();
+
+	public final CommonPreference<Integer> SLOPE_MAX_ZOOM = new IntPreference("slope_max_zoom", 17).makeProfile();
+
+	public final CommonPreference<Integer> SLOPE_TRANSPARENCY = new IntPreference("slope_transparency", 80).makeProfile();
+
+	public final CommonPreference<Boolean> TERRAIN = new BooleanPreference("terrain_layer", true).makeProfile();
 
 	public final CommonPreference<String> CONTOUR_LINES_ZOOM = new StringPreference("contour_lines_zoom", null).makeProfile().cache();
 
@@ -3387,6 +3437,7 @@ public class OsmandSettings {
 	// this value could localized
 	public final OsmandPreference<String> VOICE_PROVIDER = new StringPreference("voice_provider", null) {
 		protected String getDefaultValue() {
+
 			Configuration config = ctx.getResources().getConfiguration();
 			for (String lang : TTS_AVAILABLE_VOICES) {
 				if (lang.equals(config.locale.getLanguage())) {
@@ -3871,6 +3922,11 @@ public class OsmandSettings {
 		WikiArticleShowImages(int name) {
 			this.name = name;
 		}
+	}
+
+	public enum TerrainMode {
+		HILLSHADE,
+		SLOPE
 	}
 
 	private OsmandPreference[] generalPrefs = new OsmandPreference[]{

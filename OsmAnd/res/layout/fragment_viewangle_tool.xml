@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:osmand="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_transparent"
+    android:clickable="true">
+
+    <LinearLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_menu_dark"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/view_angle_controls"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/measurement_tool_controls_height">
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/set_left_limit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/measurement_tool_button_margin"
+                    android:layout_marginStart="@dimen/measurement_tool_button_margin"
+                    android:layout_marginLeft="@dimen/measurement_tool_button_margin"
+                    android:layout_marginBottom="@dimen/measurement_tool_button_margin"
+                    android:background="?attr/btn_round"
+                    android:drawableStart="@drawable/map_ruler_center_night"
+                    android:drawableLeft="@drawable/map_ruler_center_night"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/measurement_tool_button_height"
+                    android:paddingStart="@dimen/measurement_tool_button_padding"
+                    android:paddingLeft="@dimen/measurement_tool_button_padding"
+                    android:paddingEnd="@dimen/measurement_tool_button_padding"
+                    android:paddingRight="@dimen/measurement_tool_button_padding"
+                    android:text="@string/view_angle_tool_set_left_limit"
+                    android:textColor="@color/color_white" />
+
+                <Button
+                    android:id="@+id/set_position_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/measurement_tool_button_margin"
+                    android:layout_marginBottom="@dimen/measurement_tool_button_margin"
+                    android:background="?attr/btn_round"
+                    android:drawableStart="@drawable/map_ruler_center_night"
+                    android:drawableLeft="@drawable/map_ruler_center_night"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/measurement_tool_button_height"
+                    android:paddingStart="@dimen/measurement_tool_button_padding"
+                    android:paddingLeft="@dimen/measurement_tool_button_padding"
+                    android:paddingEnd="@dimen/measurement_tool_button_padding"
+                    android:paddingRight="@dimen/measurement_tool_button_padding"
+                    android:text="@string/view_angle_tool_set_position"
+                    android:textColor="@color/color_white" />
+
+                <Button
+                    android:id="@+id/set_right_limit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/measurement_tool_button_margin"
+                    android:layout_marginEnd="@dimen/measurement_tool_button_margin"
+                    android:layout_marginRight="@dimen/measurement_tool_button_margin"
+                    android:layout_marginBottom="@dimen/measurement_tool_button_margin"
+                    android:background="?attr/btn_round"
+                    android:drawableStart="@drawable/map_ruler_center_night"
+                    android:drawableLeft="@drawable/map_ruler_center_night"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/measurement_tool_button_height"
+                    android:paddingStart="@dimen/measurement_tool_button_padding"
+                    android:paddingLeft="@dimen/measurement_tool_button_padding"
+                    android:paddingEnd="@dimen/measurement_tool_button_padding"
+                    android:paddingRight="@dimen/measurement_tool_button_padding"
+                    android:text="@string/view_angle_tool_set_right_limit"
+                    android:textColor="@color/color_white" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

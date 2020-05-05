@@ -1063,6 +1063,10 @@
     <string name="show_on_map_after_saving">Show on map after saving</string>
     <string name="measurement_tool_action_bar">Browse the map and add points</string>
     <string name="measurement_tool">Measure distance</string>
+    <string name="view_angle_tool">View angle tool</string>
+    <string name="view_angle_tool_set_position">Position</string>
+    <string name="view_angle_tool_set_left_limit">Left limit</string>
+    <string name="view_angle_tool_set_right_limit">Right limit</string>
     <string name="quick_action_resume_pause_navigation">Pause/resume navigation</string>
     <string name="quick_action_resume_pause_navigation_descr">Button to pause or resume navigation.</string>
     <string name="quick_action_show_navigation_finish_dialog">Show \'Navigation finished\' dialog</string>

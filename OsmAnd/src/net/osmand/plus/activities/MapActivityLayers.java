@@ -40,6 +40,7 @@ import net.osmand.plus.rastermaps.OsmandRasterMapsPlugin;
 import net.osmand.plus.render.MapVectorLayer;
 import net.osmand.plus.render.RenderingIcons;
 import net.osmand.plus.routing.RoutingHelper;
+import net.osmand.plus.viewangletool.ViewAngleToolLayer;
 import net.osmand.plus.views.ContextMenuLayer;
 import net.osmand.plus.views.DownloadedRegionsLayer;
 import net.osmand.plus.views.FavouritesLayer;
@@ -95,6 +96,7 @@ public class MapActivityLayers {
 	private DownloadedRegionsLayer downloadedRegionsLayer;
 	private MapWidgetRegistry mapWidgetRegistry;
 	private MeasurementToolLayer measurementToolLayer;
+	private ViewAngleToolLayer viewAngleToolLayer;
 	
 	private StateChangedListener<Integer> transparencyListener;
 
@@ -150,6 +152,9 @@ public class MapActivityLayers {
 		// 4. favorites layer
 		mFavouritesLayer = new FavouritesLayer();
 		mapView.addLayer(mFavouritesLayer, 4);
+		// 4.5 viewangle tool layer
+		viewAngleToolLayer = new ViewAngleToolLayer(activity);
+		mapView.addLayer(viewAngleToolLayer, 4.5f); //TODO check, if 4.5 is usable
 		// 4.6 measurement tool layer
 		measurementToolLayer = new MeasurementToolLayer();
 		mapView.addLayer(measurementToolLayer, 4.6f);
@@ -616,6 +621,10 @@ public class MapActivityLayers {
 
 	public MeasurementToolLayer getMeasurementToolLayer() {
 		return measurementToolLayer;
+	}
+
+	public ViewAngleToolLayer getViewAngleToolLayer() {
+		return viewAngleToolLayer;
 	}
 
 	public MapTextLayer getMapTextLayer() {

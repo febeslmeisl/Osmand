@@ -2481,6 +2481,10 @@ Lon %2$s</string>
     <string name="live_monitoring_max_interval_to_send_desrc">Zeitpuffer festlegen, in dem zu sendende Positionen erhalten bleiben sollen, wenn keine Verbindung besteht</string>
     <string name="measurement_tool">Entfernungsmesser</string>
     <string name="measurement_tool_action_bar">Erkunden Sie die Karte und fügen Sie Punkte hinzu</string>
+    <string name="view_angle_tool">Blickwinkelanalyse</string>
+    <string name="view_angle_tool_set_position">Standpunkt</string>
+    <string name="view_angle_tool_set_left_limit">Linker Rand</string>
+    <string name="view_angle_tool_set_right_limit">Rechter Rand</string>
     <string name="mappilary_no_internet_desc">Fotos von Mapillary sind nur online verfügbar.</string>
     <string name="retry">Wiederholen</string>
     <string name="none_point_error">Bitte mindestens einen Punkt hinzufügen.</string>

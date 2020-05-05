@@ -14,6 +14,7 @@ public interface OsmAndCustomizationConstants {
 	String DRAWER_OSMAND_LIVE_ID = DRAWER_ITEM_ID_SCHEME + "osmand_live";
 	String DRAWER_TRAVEL_GUIDES_ID = DRAWER_ITEM_ID_SCHEME + "travel_guides";
 	String DRAWER_MEASURE_DISTANCE_ID = DRAWER_ITEM_ID_SCHEME + "measure_distance";
+	String DRAWER_VIEW_ANGLE_TOOL_ID = DRAWER_ITEM_ID_SCHEME + "view_angle_tool";
 	String DRAWER_CONFIGURE_SCREEN_ID = DRAWER_ITEM_ID_SCHEME + "configure_screen";
 	String DRAWER_PLUGINS_ID = DRAWER_ITEM_ID_SCHEME + "plugins";
 	String DRAWER_SETTINGS_ID = DRAWER_ITEM_ID_SCHEME + "settings";

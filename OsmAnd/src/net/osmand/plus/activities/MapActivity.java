@@ -143,6 +143,7 @@ import net.osmand.plus.settings.DataStorageFragment;
 import net.osmand.plus.settings.ImportCompleteFragment;
 import net.osmand.plus.settings.ImportSettingsFragment;
 import net.osmand.plus.settings.ProfileAppearanceFragment;
+import net.osmand.plus.viewangletool.ViewAngleToolFragment;
 import net.osmand.plus.views.AddGpxPointBottomSheetHelper.NewGpxPoint;
 import net.osmand.plus.views.AnimateDraggingMapThread;
 import net.osmand.plus.views.MapControlsLayer;
@@ -741,6 +742,13 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 		if ( quickActionListFragment != null && quickActionListFragment.isVisible()) {
 			this.getDashboard().setDashboardVisibility(true, DashboardType.CONFIGURE_SCREEN, null);
 		}
+
+		ViewAngleToolFragment viewAngleToolFragment = getViewAngleToolFragment();
+		if (viewAngleToolFragment != null) {
+			viewAngleToolFragment.quit();
+			return;
+		}
+
 		ImportSettingsFragment importSettingsFragment = getImportSettingsFragment();
 		if (importSettingsFragment != null) {
 			importSettingsFragment.showExitDialog();
@@ -2453,6 +2461,10 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 
 	public MeasurementToolFragment getMeasurementToolFragment() {
 		return getFragment(MeasurementToolFragment.TAG);
+	}
+
+	public ViewAngleToolFragment getViewAngleToolFragment() {
+		return getFragment(ViewAngleToolFragment.TAG);
 	}
 
 	public ChooseRouteFragment getChooseRouteFragment() {

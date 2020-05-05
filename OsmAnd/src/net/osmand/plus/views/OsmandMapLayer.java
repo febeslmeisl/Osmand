@@ -526,7 +526,6 @@ public abstract class OsmandMapLayer {
 				}
 			}
 			if (draw||hasStyles) {
-
 				outputPoints[0]=prevX;
 				outputPoints[1]=prevY;
 				outputPoints[2]=currX;

@@ -135,7 +135,6 @@ public class MapAlgorithms {
 				bx = leftX;
 				return combine2Points(bx, by);
 			}
-
 		}
 		if (outx > rightX && inx <= rightX) {
 			int ty = (int) (outy + ((double) (iny - outy) * (outx - rightX)) / (outx - inx));
@@ -144,7 +143,6 @@ public class MapAlgorithms {
 				bx = rightX;
 				return combine2Points(bx, by);
 			}
-
 		}
 
 		// try to search if point goes out
@@ -180,7 +178,6 @@ public class MapAlgorithms {
 				bx = rightX;
 				return combine2Points(bx, by);
 			}
-
 		}
 		if (outx == rightX || outx == leftX) {
 			if (outy >= topY && outy <= bottomY) {

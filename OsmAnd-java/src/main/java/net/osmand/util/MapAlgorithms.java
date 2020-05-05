@@ -112,7 +112,7 @@ public class MapAlgorithms {
 		int by = -1;
 		int bx = -1;
 		// firstly try to search if the line goes in
-		if (outy < topY && topY <= iny) {
+		if (outy < topY && iny >= topY) {
 			int tx = (int) (outx + ((double) (inx - outx) * (topY - outy)) / (iny - outy));
 			if (leftX <= tx && tx <= rightX) {
 				bx = tx;
@@ -120,7 +120,7 @@ public class MapAlgorithms {
 				return combine2Points(bx, by);
 			}
 		}
-		if (iny <= bottomY && bottomY < outy) {
+		if (outy > bottomY && iny <= bottomY) {
 			int tx = (int) (outx + ((double) (inx - outx) * (outy - bottomY)) / (outy - iny));
 			if (leftX <= tx && tx <= rightX) {
 				bx = tx;
@@ -128,25 +128,27 @@ public class MapAlgorithms {
 				return combine2Points(bx, by);
 			}
 		}
-		if (outx < leftX && leftX <= inx) {
+		if (outx < leftX && inx >= leftX) {
 			int ty = (int) (outy + ((double) (iny - outy) * (leftX - outx)) / (inx - outx));
 			if (ty >= topY && ty <= bottomY) {
 				by = ty;
 				bx = leftX;
 				return combine2Points(bx, by);
 			}
+
 		}
-		if (inx <= rightX && rightX < outx) {
+		if (outx > rightX && inx <= rightX) {
 			int ty = (int) (outy + ((double) (iny - outy) * (outx - rightX)) / (outx - inx));
-			if (topY <= ty && ty <= bottomY) {
+			if (ty >= topY && ty <= bottomY) {
 				by = ty;
 				bx = rightX;
 				return combine2Points(bx, by);
 			}
+
 		}
 
 		// try to search if point goes out
-		if (iny <= topY && topY < outy) {
+		if (outy > topY && iny <= topY) {
 			int tx = (int) (outx + ((double) (inx - outx) * (topY - outy)) / (iny - outy));
 			if (leftX <= tx && tx <= rightX) {
 				bx = tx;
@@ -154,7 +156,7 @@ public class MapAlgorithms {
 				return combine2Points(bx, by);
 			}
 		}
-		if (outy < bottomY && bottomY <= iny) {
+		if (outy < bottomY && iny >= bottomY) {
 			int tx = (int) (outx + ((double) (inx - outx) * (outy - bottomY)) / (outy - iny));
 			if (leftX <= tx && tx <= rightX) {
 				bx = tx;
@@ -162,21 +164,23 @@ public class MapAlgorithms {
 				return combine2Points(bx, by);
 			}
 		}
-		if (inx <= leftX && leftX < outx) {
+		if (outx > leftX && inx <= leftX) {
 			int ty = (int) (outy + ((double) (iny - outy) * (leftX - outx)) / (inx - outx));
 			if (ty >= topY && ty <= bottomY) {
 				by = ty;
 				bx = leftX;
 				return combine2Points(bx, by);
 			}
+
 		}
-		if (outx < rightX && rightX <= inx) {
+		if (outx < rightX && inx >= rightX) {
 			int ty = (int) (outy + ((double) (iny - outy) * (outx - rightX)) / (outx - inx));
 			if (ty >= topY && ty <= bottomY) {
 				by = ty;
 				bx = rightX;
 				return combine2Points(bx, by);
 			}
+
 		}
 		if (outx == rightX || outx == leftX) {
 			if (outy >= topY && outy <= bottomY) {
@@ -185,6 +189,7 @@ public class MapAlgorithms {
 				return combine2Points(bx, by);
 			}
 		}
+
 		if (outy == topY || outy == bottomY) {
 			if (leftX <= outx && outx <= rightX) {
 				bx = outx;

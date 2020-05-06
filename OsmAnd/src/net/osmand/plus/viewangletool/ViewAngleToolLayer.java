@@ -111,13 +111,15 @@ public class ViewAngleToolLayer extends OsmandMapLayer {
 	public void onDraw(Canvas canvas, RotatedTileBox tb, DrawSettings settings) {
 		if (isInViewAngleMode) {
 
+			canvas.rotate(-tb.getRotate(), tb.getCenterPixelX(), tb.getCenterPixelY());
+
 			drawCenterIcon(canvas, tb, settings.isNightMode());
 
 			LatLon viewPos = viewPosition;
 			if (viewPos != null) {
 				if (viewPos!=null) {
-					int locX = tb.getPixXFromLonNoRot(viewPos.getLongitude());
-					int locY = tb.getPixYFromLatNoRot(viewPos.getLatitude());
+					int locX = Math.round(tb.getPixXFromLatLon(viewPos.getLatitude(), viewPos.getLongitude()));
+					int locY = Math.round(tb.getPixYFromLatLon(viewPos.getLatitude(), viewPos.getLongitude()));
 					viewAttrs.updatePaints(view.getApplication(), settings, tb);
                     setIconColor(pointIcon, viewAttrs.paint);
                     pointIcon.setBounds(locX - marginPointIconX, locY - marginPointIconY, locX + marginPointIconX, locY + marginPointIconY);
@@ -129,6 +131,7 @@ public class ViewAngleToolLayer extends OsmandMapLayer {
 					drawLimitLine(canvas, rightLimit, viewPos, pointIcon, viewAttrs.paint3, tb, settings);
 				}
 			}
+			canvas.rotate(tb.getRotate(), tb.getCenterPixelX(), tb.getCenterPixelY());
 		}
 	}
 
@@ -136,23 +139,23 @@ public class ViewAngleToolLayer extends OsmandMapLayer {
 		if (limit!=null) {
 
 			setIconColor(limitIcon, paint);
-			int locX = tb.getPixXFromLonNoRot(limit.getLongitude());
-			int locY = tb.getPixYFromLatNoRot(limit.getLatitude());
-			limitIcon.setBounds(locX - marginPointIconX, locY - marginPointIconY, locX + marginPointIconX, locY + marginPointIconY);
+			float locX = tb.getPixXFromLatLon(limit.getLatitude(), limit.getLongitude());
+			float locY = tb.getPixYFromLatLon(limit.getLatitude(), limit.getLongitude());
+			limitIcon.setBounds(Math.round(locX - marginPointIconX), Math.round(locY - marginPointIconY), Math.round(locX + marginPointIconX), Math.round(locY + marginPointIconY));
 			limitIcon.draw(canvas);
 			float bearing = getLocationFromLL(viewPos.getLatitude(), viewPos.getLongitude()).bearingTo(getLocationFromLL(limit.getLatitude(), limit.getLongitude()));
 
 			tx.clear();
 			ty.clear();
-			tx.add((float)tb.getPixXFromLonNoRot(viewPos.getLongitude()));
-			ty.add((float)tb.getPixYFromLatNoRot(viewPos.getLatitude()));
-			tx.add((float)tb.getPixXFromLonNoRot(limit.getLongitude()));
-			ty.add((float)tb.getPixYFromLatNoRot(limit.getLatitude()));
+			tx.add(locX);
+			ty.add(locY);
+			tx.add(tb.getPixXFromLatLon(viewPos.getLatitude(), viewPos.getLongitude()));
+			ty.add(tb.getPixYFromLatLon(viewPos.getLatitude(), viewPos.getLongitude()));
 			double dist=FAR_VIEW_DISTANCE;
 			//for (double dist=VIEW_RHUMB_STEP; dist<=FAR_VIEW_DISTANCE; dist+=VIEW_RHUMB_STEP) {
 			LatLon farLimit = MapUtils.rhumbDestinationPoint(viewPos, dist,bearing);
-			tx.add((float)tb.getPixXFromLonNoRot(farLimit.getLongitude()));
-			ty.add((float)tb.getPixYFromLatNoRot(farLimit.getLatitude()));
+			tx.add(tb.getPixXFromLatLon(farLimit.getLatitude(), farLimit.getLongitude()));
+			ty.add(tb.getPixYFromLatLon(farLimit.getLatitude(), farLimit.getLongitude()));
 			//}
 			path.reset();
 			calculatePath(tb, tx, ty, path);
@@ -180,7 +183,7 @@ public class ViewAngleToolLayer extends OsmandMapLayer {
 
 	private void drawCenterIcon(Canvas canvas, RotatedTileBox tb, boolean nightMode) {
 		QuadPoint center =tb.getCenterPixelPoint();
-		canvas.rotate(-tb.getRotate(), center.x, center.y);
+		//canvas.rotate(-tb.getRotate(), center.x, center.y);
 		if (nightMode) {
 			canvas.drawBitmap(centerIconNight, center.x - centerIconNight.getWidth() / 2,
 					center.y - centerIconNight.getHeight() / 2, mainPaint);
@@ -188,7 +191,7 @@ public class ViewAngleToolLayer extends OsmandMapLayer {
 			canvas.drawBitmap(centerIconDay, center.x - centerIconDay.getWidth() / 2,
 					center.y - centerIconDay.getHeight() / 2, mainPaint);
 		}
-		canvas.rotate(tb.getRotate(), center.x, center.y);
+		//canvas.rotate(tb.getRotate(), center.x, center.y);
 	}
 
 	private LatLon getCenterPoint() {

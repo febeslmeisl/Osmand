@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Cap;
 import android.graphics.Paint.Join;
@@ -469,43 +468,25 @@ public abstract class OsmandMapLayer {
 		}
 	}
 
-	private Matrix mtx = new Matrix();
-	private Matrix inv_mtx = new Matrix();
-	private float[] pointCache;
-	private float[] outputPoints = new float[4];
-
 	public int calculatePath(RotatedTileBox tb, List<Float> xs, List<Float> ys, List<GeometryWayStyle> styles, List<Pair<Path, GeometryWayStyle>> paths) {
 		boolean segmentStarted = false;
-
-		//rotating all waypoints first for fitting in RotatedTileBox rect, if map is not in north orientation and later rotating back (maybe there's a better way to do this?)
-		mtx.setSinCos((float)tb.getRotateSin(), (float)tb.getRotateCos(), tb.getCenterPixelX(), tb.getCenterPixelY());
-		inv_mtx.setRotate(-tb.getRotate(), tb.getCenterPixelX(), tb.getCenterPixelY());
-		pointCache = new float[xs.size()+ys.size()];
-		for (int i = 0; i < xs.size(); i++) {
-			pointCache[i * 2] =xs.get(i);
-			pointCache[i * 2 + 1] =ys.get(i);
-		}
-		mtx.mapPoints(pointCache);
-		float prevX = pointCache[0];
-		float prevY = pointCache[1];
+		float prevX = xs.get(0);
+		float prevY = ys.get(0);
 		int height = tb.getPixHeight();
 		int width = tb.getPixWidth();
-
 		int cnt = 0;
 		boolean hasStyles = styles != null && styles.size() == xs.size();
 		GeometryWayStyle style = hasStyles ? styles.get(0) : null;
 		Path path = new Path();
-
 		boolean prevIn = isIn(prevX, prevY, 0, 0, width, height);
 		for (int i = 1; i < xs.size(); i++) {
-			float currX = pointCache[2*i];
-			float currY = pointCache[2*i+1];
+			float currX = xs.get(i);
+			float currY = ys.get(i);
 			boolean currIn = isIn(currX, currY, 0, 0, width, height);
 			boolean draw = false;
 			if (prevIn && currIn) {
 				draw = true;
 			} else {
-
 				long intersection = MapAlgorithms.calculateIntersection((int)currX, (int)currY, (int)prevX, (int)prevY, 0, width, height, 0);
 				if (intersection != -1) {
 					if (prevIn && (i == 1)) {
@@ -525,20 +506,13 @@ public abstract class OsmandMapLayer {
 					}
 				}
 			}
-			if (draw||hasStyles) {
-				outputPoints[0]=prevX;
-				outputPoints[1]=prevY;
-				outputPoints[2]=currX;
-				outputPoints[3]=currY;
-				inv_mtx.mapPoints(outputPoints);
-			}
 			if (draw) {
 				if (!segmentStarted) {
 					cnt++;
-					path.moveTo(outputPoints[0], outputPoints[1]);
+					path.moveTo(prevX, prevY);
 					segmentStarted = true;
 				}
-				path.lineTo(outputPoints[2], outputPoints[3]);
+				path.lineTo(currX, currY);
 			} else {
 				segmentStarted = false;
 			}
@@ -552,7 +526,7 @@ public abstract class OsmandMapLayer {
 					paths.add(new Pair<>(path, style));
 					path = new Path();
 					if (segmentStarted) {
-						path.moveTo(outputPoints[2], outputPoints[3]);
+						path.moveTo(currX, currY);
 					}
 					style = newStyle;
 				}
